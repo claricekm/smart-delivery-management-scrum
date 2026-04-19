@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhe do Cliente</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+<div class="main">
+
+    <div class="page-header">
+        <div>
+            <h2 class="page-title">Detalhe do Cliente</h2>
+            <p class="page-subtitle">Informações gerais e histórico</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 class="card-title">Informações do Cliente</h3>
+
+        <div class="detail-grid">
+            <div>
+                <div class="detail-label">Nome</div>
+                <div class="detail-value">João Silva</div>
+            </div>
+
+            <div>
+                <div class="detail-label">Email</div>
+                <div class="detail-value">joao@exemplo.com</div>
+            </div>
+
+            <div>
+                <div class="detail-label">Contacto</div>
+                <div class="detail-value">912345678</div>
+            </div>
+
+            <div>
+                <div class="detail-label">Tipo</div>
+                <div class="detail-value">Particular</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 class="card-title">Histórico de Encomendas</h3>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID Encomenda</th>
+                <th>Data</th>
+                <th>Estado</th>
+                <th>Valor</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>#1021</td>
+                <td>14/04/2026</td>
+                <td><span class="badge badge-success">Entregue</span></td>
+                <td>12.50 EUR</td>
+            </tr>
+
+            <tr>
+                <td>#0975</td>
+                <td>03/04/2026</td>
+                <td><span class="badge badge-error">Cancelada</span></td>
+                <td>0 EUR</td>
+            </tr>
+
+            <tr>
+                <td>#0950</td>
+                <td>27/03/2026</td>
+                <td><span class="badge badge-warning">Em distribuição</span></td>
+                <td>8.90 EUR</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

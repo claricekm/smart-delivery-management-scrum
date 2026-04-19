@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+<div class="main">
+    <div class="page-header">
+        <div>
+            <h2 class="page-title">Clientes</h2>
+            <p class="page-subtitle">Listagem com pesquisa e filtros</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="search-bar">
+            <div class="search-input-wrap">
+                <input type="text" class="search-input" placeholder="Pesquisar cliente">
+            </div>
+
+            <select class="filter-select">
+                <option value="">Filtrar por tipo</option>
+                <option>Particular</option>
+                <option>Empresa</option>
+            </select>
+
+            <button class="btn btn-primary">Aplicar</button>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Contacto</th>
+                <th>Tipo</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>João Silva</td>
+                <td>joao@exemplo.com</td>
+                <td>912345678</td>
+                <td>Particular</td>
+                <td class="table-actions">
+                    <a href="detalhe-cliente.html" class="btn btn-secondary btn-sm">Detalhes</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Empresa XPTO</td>
+                <td>contacto@xpto.com</td>
+                <td>213456789</td>
+                <td>Empresa</td>
+                <td class="table-actions">
+                    <a href="detalhe-cliente.html" class="btn btn-secondary btn-sm">Detalhes</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
