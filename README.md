@@ -14,7 +14,7 @@ The system is designed to support:
 - Decision support through indicators and data analysis
 
 ## Team Members and SCRUM Roles
-- **Pessoa 1** — Product Owner
+- **Erik Muller** — Product Owner
 - **Manuela Oliveira** — Scrum Master
 - **Pessoa 3** — Development Team
 - **Pessoa 4** — Development Team
