@@ -1,247 +1,272 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Detalhe Estafeta — SmartDelivery</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../assets/css/style.css"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Detalhe Estafeta — SmartDelivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/style.css"/>
 </head>
 <body>
+
 <aside class="sidebar">
-  <div class="sidebar-logo">
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <rect width="28" height="28" rx="7" fill="#01696f"/>
-      <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    SmartDelivery
-  </div>
-  <nav class="sidebar-nav">
-    <div class="nav-section">Principal</div>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      Dashboard
-    </a>
-    <div class="nav-section">Gestão</div>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Clientes
-    </a>
-    <a href="lista-estafetas.html" class="nav-item active">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-      Estafetas
-    </a>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
-      Encomendas
-    </a>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Entregas
-    </a>
-    <div class="nav-section">Recursos</div>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-      Veículos
-    </a>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-      Indicadores
-    </a>
-  </nav>
+    <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#01696f"/>
+            <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        SmartDelivery
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Dashboard
+        </a>
+        <div class="nav-section">Gestão</div>
+        <a href="../clientes/lista-clientes.Html" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Clientes
+        </a>
+        <a href="../estafetas/lista-estafetas.html" class="nav-item active">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            Estafetas
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+            Encomendas
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Entregas
+        </a>
+        <div class="nav-section">Recursos</div>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Veículos
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Indicadores
+        </a>
+    </nav>
 </aside>
 
 <header class="topbar">
-  <div>
-    <div class="topbar-title">Detalhe do Estafeta</div>
-    <div class="breadcrumb">Estafetas › <span>João Silva</span></div>
-  </div>
-  <div class="topbar-actions">
-    <a href="lista-estafetas.html" class="btn btn-secondary btn-sm">← Voltar</a>
-    <a href="registo-estafeta.html" class="btn btn-primary btn-sm">✏️ Editar</a>
-    <div class="user-avatar">MO</div>
-  </div>
+    <div>
+        <div class="topbar-title">Detalhe do Estafeta</div>
+        <div class="breadcrumb">Estafetas › <span id="courier-name-breadcrumb">Carregando...</span></div>
+    </div>
+    <div class="topbar-actions">
+        <a href="lista-estafetas.html" class="btn btn-secondary btn-sm">← Voltar</a>
+        <a href="#" id="editButton" class="btn btn-primary btn-sm">✏️ Editar</a>
+        <div class="user-avatar">MO</div>
+    </div>
 </header>
 
 <main class="main">
-
-  <!-- PERFIL -->
-  <div class="card">
-    <div style="display:flex;align-items:center;gap:20px;">
-      <div style="width:60px;height:60px;border-radius:50%;background:#e8f2f1;color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;">JS</div>
-      <div style="flex:1">
-        <div style="font-size:19px;font-weight:700;">João Manuel Silva</div>
-        <div style="font-size:13px;color:var(--text-muted);margin-top:2px;">912 345 678 · joao.silva@email.com</div>
-        <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
-          <span class="badge badge-success">● Disponível</span>
-          <span class="tag">🏍️ Moto</span>
-          <span class="tag">📍 Lisboa Centro</span>
-          <span class="tag">🕐 09:00 – 17:00</span>
+    <!-- PERFIL -->
+    <div class="card">
+        <div style="display:flex;align-items:center;gap:20px;">
+            <div id="avatarPerfil" style="width:60px;height:60px;border-radius:50%;background:#e8f2f1;color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;">JS</div>
+            <div style="flex:1">
+                <div id="courierName" style="font-size:19px;font-weight:700;">João Manuel Silva</div>
+                <div id="courierContact" style="font-size:13px;color:var(--text-muted);margin-top:2px;">912 345 678 · joao.silva@email.com</div>
+                <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
+                    <span id="statusBadge" class="badge badge-success">● Disponível</span>
+                    <span id="vehicleTag" class="tag">🏍️ Moto</span>
+                    <span id="zoneTag" class="tag">📍 Lisboa Centro</span>
+                    <span id="scheduleTag" class="tag">🕐 09:00 – 17:00</span>
+                </div>
+            </div>
+            <div style="text-align:right;">
+                <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;">Registado em</div>
+                <div id="registrationDate" style="font-size:13px;font-weight:600;margin-top:3px;">12 Jan 2024</div>
+            </div>
         </div>
-      </div>
-      <div style="text-align:right;">
-        <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;">Registado em</div>
-        <div style="font-size:13px;font-weight:600;margin-top:3px;">12 Jan 2024</div>
-      </div>
-    </div>
-  </div>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
-    <!-- DADOS PESSOAIS -->
-    <div class="card" style="margin-bottom:0">
-      <div class="section-label">Dados Pessoais</div>
-      <div class="detail-grid">
-        <div><div class="detail-label">Nome completo</div><div class="detail-value">João Manuel Silva</div></div>
-        <div><div class="detail-label">NIF</div><div class="detail-value">234 567 890</div></div>
-        <div><div class="detail-label">Telemóvel</div><div class="detail-value">912 345 678</div></div>
-        <div><div class="detail-label">Email</div><div class="detail-value">joao.silva@email.com</div></div>
-        <div style="grid-column:span 2"><div class="detail-label">Morada</div><div class="detail-value">Rua das Flores, 12, Lisboa</div></div>
-      </div>
     </div>
 
-    <!-- US06 CA1 e CA2 — DISPONIBILIDADE -->
-    <div class="card" style="margin-bottom:0">
-      <div class="section-label">Disponibilidade e Horário</div>
-      <div class="detail-grid" style="margin-bottom:16px;">
-        <div>
-          <div class="detail-label">Estado atual</div>
-          <div class="detail-value"><span class="badge badge-success">● Disponível</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+        <!-- DADOS PESSOAIS -->
+        <div class="card" style="margin-bottom:0">
+            <div class="section-label">Dados Pessoais</div>
+            <div class="detail-grid" id="personalDetails"></div>
         </div>
-        <div>
-          <div class="detail-label">Horário de trabalho</div>
-          <div class="detail-value">09:00 – 17:00</div>
+
+        <!-- DISPONIBILIDADE -->
+        <div class="card" style="margin-bottom:0">
+            <div class="section-label">Disponibilidade e Horário</div>
+            <div class="detail-grid" id="availabilityDetails"></div>
+            <div class="section-label">Alterar disponibilidade</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button class="btn btn-secondary btn-sm" data-status="Disponível">● Disponível</button>
+                <button class="btn btn-warning btn-sm" data-status="Ocupado">● Ocupado</button>
+                <button class="btn btn-danger btn-sm" data-status="Indisponível">● Indisponível</button>
+            </div>
         </div>
-        <div>
-          <div class="detail-label">Zona de operação</div>
-          <div class="detail-value">Lisboa Centro</div>
+    </div>
+
+    <!-- CARGA DE TRABALHO (exemplo estático - pode ser dinâmico depois) -->
+    <div class="card">
+        <div class="section-label">Carga de Trabalho — Hoje, 19 Abr 2026</div>
+        <div class="workload-grid">
+            <div class="workload-box"><div class="workload-num" style="color:var(--primary)">5</div><div class="workload-lbl">Entregas hoje</div></div>
+            <div class="workload-box"><div class="workload-num" style="color:var(--warning)">2</div><div class="workload-lbl">Em curso</div></div>
+            <div class="workload-box"><div class="workload-num" style="color:var(--success)">3</div><div class="workload-lbl">Concluídas</div></div>
+            <div class="workload-box"><div class="workload-num" style="color:var(--text-muted)">47</div><div class="workload-lbl">Total histórico</div></div>
         </div>
-        <div>
-          <div class="detail-label">Tipo de veículo</div>
-          <div class="detail-value">🏍️ Moto</div>
+        <div style="margin-bottom:20px;">
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;"><span>Capacidade diária utilizada</span><span id="capacityText">5 de 10 entregas</span></div>
+            <div class="progress-bar-bg"><div id="capacityBar" class="progress-bar-fill" style="width:50%"></div></div>
         </div>
-      </div>
-      <!-- US06 CA1 — Alterar estado de disponibilidade -->
-      <div class="section-label">Alterar disponibilidade</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;">
-        <button class="btn btn-secondary btn-sm">● Disponível</button>
-        <button class="btn btn-warning btn-sm">● Ocupado</button>
-        <button class="btn btn-danger btn-sm">● Indisponível</button>
-      </div>
+        <div class="section-label">Entregas atribuídas hoje</div>
+        <table class="table" id="deliveriesTable">
+            <!-- conteúdo preenchido por JS -->
+        </table>
     </div>
-  </div>
-
-  <!-- US07 CA1 — CARGA DE TRABALHO -->
-  <div class="card">
-    <div class="section-label">Carga de Trabalho — Hoje, 19 Abr 2026</div>
-
-    <!-- US07 CA1 — número de entregas associadas -->
-    <div class="workload-grid">
-      <div class="workload-box">
-        <div class="workload-num" style="color:var(--primary)">5</div>
-        <div class="workload-lbl">Entregas hoje</div>
-      </div>
-      <div class="workload-box">
-        <div class="workload-num" style="color:var(--warning)">2</div>
-        <div class="workload-lbl">Em curso</div>
-      </div>
-      <div class="workload-box">
-        <div class="workload-num" style="color:var(--success)">3</div>
-        <div class="workload-lbl">Concluídas</div>
-      </div>
-      <div class="workload-box">
-        <div class="workload-num" style="color:var(--text-muted)">47</div>
-        <div class="workload-lbl">Total histórico</div>
-      </div>
-    </div>
-
-    <!-- Barra de capacidade -->
-    <div style="margin-bottom:20px;">
-      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;">
-        <span style="font-weight:500;">Capacidade diária utilizada</span>
-        <span style="color:var(--primary);font-weight:600;">5 de 10 entregas</span>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" style="width:50%"></div>
-      </div>
-      <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">50% da capacidade máxima diária</div>
-    </div>
-
-    <!-- Entregas atribuídas hoje -->
-    <div class="section-label">Entregas atribuídas hoje</div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Encomenda</th>
-          <th>Morada de entrega</th>
-          <th>Hora prevista</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>#ENC-2041</strong></td>
-          <td>Av. da Liberdade, 45, Lisboa</td>
-          <td>10:30</td>
-          <td><span class="badge badge-success">Entregue</span></td>
-        </tr>
-        <tr>
-          <td><strong>#ENC-2038</strong></td>
-          <td>Rua Augusta, 12, Lisboa</td>
-          <td>11:15</td>
-          <td><span class="badge badge-success">Entregue</span></td>
-        </tr>
-        <tr>
-          <td><strong>#ENC-2045</strong></td>
-          <td>Praça do Comércio, 3, Lisboa</td>
-          <td>13:00</td>
-          <td><span class="badge badge-success">Entregue</span></td>
-        </tr>
-        <tr>
-          <td><strong>#ENC-2049</strong></td>
-          <td>Rua do Ouro, 78, Lisboa</td>
-          <td>14:30</td>
-          <td><span class="badge badge-warning">Em curso</span></td>
-        </tr>
-        <tr>
-          <td><strong>#ENC-2052</strong></td>
-          <td>Largo do Chiado, 9, Lisboa</td>
-          <td>16:00</td>
-          <td><span class="badge badge-warning">Em curso</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- US07 CA3 — Variante: estafeta SEM entregas -->
-  <div class="card">
-    <div class="section-label">Exemplo: Estafeta sem entregas atribuídas (Ana Pereira)</div>
-    <div class="workload-grid">
-      <div class="workload-box">
-        <div class="workload-num" style="color:var(--text-muted)">0</div>
-        <div class="workload-lbl">Entregas hoje</div>
-      </div>
-      <div class="workload-box">
-        <div class="workload-num" style="color:var(--text-muted)">0</div>
-        <div class="workload-lbl">Em curso</div>
-      </div>
-      <div class="workload-box">
-        <div class="workload-num" style="color:var(--text-muted)">0</div>
-        <div class="workload-lbl">Concluídas</div>
-      </div>
-      <div class="workload-box">
-        <div class="workload-num" style="color:var(--text-muted)">0</div>
-        <div class="workload-lbl">Total histórico</div>
-      </div>
-    </div>
-    <div class="progress-bar-bg" style="margin-bottom:10px;"><div class="progress-bar-fill" style="width:0%"></div></div>
-    <!-- US07 CA3 — carga nula claramente indicada -->
-    <div class="workload-empty">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-      <span>Este estafeta não tem entregas atribuídas para hoje.</span>
-    </div>
-  </div>
-
 </main>
+
+<script>
+    const couriers = [
+        {
+            id: 0, name: "João Manuel Silva", nif: "234 567 890", phone: "912 345 678", email: "joao.silva@email.com",
+            address: "Rua das Flores, 12, Lisboa", zone: "Lisboa Centro", vehicle: "Moto", schedule: "09:00 – 17:00",
+            status: "Disponível", registrationDate: "12 Jan 2024", avatarInitials: "JS",
+            deliveries: [
+                { id: "ENC-2041", address: "Av. da Liberdade, 45, Lisboa", time: "10:30", status: "Entregue" },
+                { id: "ENC-2038", address: "Rua Augusta, 12, Lisboa", time: "11:15", status: "Entregue" },
+                { id: "ENC-2045", address: "Praça do Comércio, 3, Lisboa", time: "13:00", status: "Entregue" },
+                { id: "ENC-2049", address: "Rua do Ouro, 78, Lisboa", time: "14:30", status: "Em curso" },
+                { id: "ENC-2052", address: "Largo do Chiado, 9, Lisboa", time: "16:00", status: "Em curso" }
+            ]
+        },
+        {
+            id: 1, name: "Maria Costa", nif: "345 678 901", phone: "923 456 789", email: "maria.costa@email.com",
+            address: "Av. da Liberdade, 45, Lisboa", zone: "Lisboa Norte", vehicle: "Bicicleta", schedule: "08:00 – 16:00",
+            status: "Ocupado", registrationDate: "05 Mar 2024", avatarInitials: "MC",
+            deliveries: [
+                { id: "ENC-2100", address: "Rua do Norte, 10, Lisboa", time: "09:00", status: "Entregue" },
+                { id: "ENC-2101", address: "Praça da Alegria, 22, Lisboa", time: "10:30", status: "Entregue" },
+                { id: "ENC-2102", address: "Av. da República, 101, Lisboa", time: "12:00", status: "Em curso" }
+            ]
+        },
+        {
+            id: 2, name: "Rui Ferreira", nif: "456 789 012", phone: "934 567 890", email: "rui.ferreira@email.com",
+            address: "Rua Augusta, 78, Cascais", zone: "Cascais", vehicle: "Carrinha", schedule: "12:00 – 20:00",
+            status: "Disponível", registrationDate: "20 Abr 2024", avatarInitials: "RF",
+            deliveries: [
+                { id: "ENC-2150", address: "Rua das Palmeiras, 5, Cascais", time: "14:00", status: "Entregue" },
+                { id: "ENC-2151", address: "Av. Marginal, 88, Cascais", time: "16:30", status: "Em curso" }
+            ]
+        },
+        {
+            id: 3, name: "Ana Pereira", nif: "567 890 123", phone: "945 678 901", email: "ana.pereira@email.com",
+            address: "Largo do Chiado, 9, Lisboa", zone: "Lisboa Sul", vehicle: "Moto", schedule: "14:00 – 22:00",
+            status: "Indisponível", registrationDate: "10 Jun 2024", avatarInitials: "AP",
+            deliveries: [] // sem entregas
+        },
+        {
+            id: 4, name: "Tiago Gomes", nif: "678 901 234", phone: "956 789 012", email: "tiago.gomes@email.com",
+            address: "Estrada de Sintra, 23, Sintra", zone: "Sintra", vehicle: "Bicicleta", schedule: "09:00 – 17:00",
+            status: "Disponível", registrationDate: "15 Set 2024", avatarInitials: "TG",
+            deliveries: [
+                { id: "ENC-2200", address: "Rua da Amizade, 7, Sintra", time: "10:00", status: "Entregue" },
+                { id: "ENC-2201", address: "Av. da Liberdade, 34, Sintra", time: "11:45", status: "Entregue" },
+                { id: "ENC-2202", address: "Praça do Centro, 12, Sintra", time: "13:20", status: "Entregue" },
+                { id: "ENC-2203", address: "Rua dos Viajantes, 99, Sintra", time: "15:00", status: "Entregue" },
+                { id: "ENC-2204", address: "Largo da Estação, 4, Sintra", time: "16:45", status: "Entregue" }
+            ]
+        }
+    ];
+
+    // Obter ID da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    let id = urlParams.get('id');
+    let courier = couriers.find(c => c.id == parseInt(id));
+    if (!courier) {
+        console.warn("ID inválido ou não fornecido. A mostrar primeiro estafeta.");
+        courier = couriers[0];
+    }
+
+    // Atualizar página com os dados do estafeta
+    document.title = `Detalhe Estafeta — ${courier.name}`;
+    document.getElementById('courier-name-breadcrumb').innerText = courier.name;
+    document.getElementById('avatarPerfil').innerText = courier.avatarInitials;
+    document.getElementById('courierName').innerText = courier.name;
+    document.getElementById('courierContact').innerHTML = `${courier.phone} · ${courier.email}`;
+
+    // Badge de status
+    const statusSpan = document.getElementById('statusBadge');
+    statusSpan.innerText = courier.status === 'Disponível' ? '● Disponível' : (courier.status === 'Ocupado' ? '● Ocupado' : '● Indisponível');
+    statusSpan.className = `badge badge-${courier.status === 'Disponível' ? 'success' : (courier.status === 'Ocupado' ? 'warning' : 'error')}`;
+
+    document.getElementById('vehicleTag').innerHTML = courier.vehicle === 'Moto' ? '🏍️ Moto' : (courier.vehicle === 'Bicicleta' ? '🚲 Bicicleta' : '🚐 Carrinha');
+    document.getElementById('zoneTag').innerHTML = `📍 ${courier.zone}`;
+    document.getElementById('scheduleTag').innerHTML = `🕐 ${courier.schedule}`;
+    document.getElementById('registrationDate').innerText = courier.registrationDate;
+    document.getElementById('editButton').href = `registo-estafeta.html?id=${courier.id}`;
+
+    // Dados pessoais
+    document.getElementById('personalDetails').innerHTML = `
+    <div><div class="detail-label">Nome completo</div><div class="detail-value">${courier.name}</div></div>
+    <div><div class="detail-label">NIF</div><div class="detail-value">${courier.nif}</div></div>
+    <div><div class="detail-label">Telemóvel</div><div class="detail-value">${courier.phone}</div></div>
+    <div><div class="detail-label">Email</div><div class="detail-value">${courier.email}</div></div>
+    <div style="grid-column:span 2"><div class="detail-label">Morada</div><div class="detail-value">${courier.address}</div></div>
+  `;
+
+    // Disponibilidade
+    document.getElementById('availabilityDetails').innerHTML = `
+    <div><div class="detail-label">Estado atual</div><div class="detail-value"><span class="badge badge-${courier.status === 'Disponível' ? 'success' : (courier.status === 'Ocupado' ? 'warning' : 'error')}">● ${courier.status}</span></div></div>
+    <div><div class="detail-label">Horário de trabalho</div><div class="detail-value">${courier.schedule}</div></div>
+    <div><div class="detail-label">Zona de operação</div><div class="detail-value">${courier.zone}</div></div>
+    <div><div class="detail-label">Tipo de veículo</div><div class="detail-value">${courier.vehicle}</div></div>
+  `;
+
+    // Carga de trabalho e entregas
+    const totalDeliveries = courier.deliveries.length;
+    const completed = courier.deliveries.filter(d => d.status === 'Entregue').length;
+    const ongoing = courier.deliveries.filter(d => d.status === 'Em curso').length;
+    document.querySelector('.workload-num:first-child').innerText = totalDeliveries;
+    document.querySelector('.workload-num:nth-child(2)').innerText = ongoing;
+    document.querySelector('.workload-num:nth-child(3)').innerText = completed;
+    document.querySelector('.workload-num:last-child').innerText = "47"; // histórico estático
+
+    const capacityPercent = totalDeliveries * 10; // assume max 10 entregas
+    document.getElementById('capacityText').innerText = `${totalDeliveries} de 10 entregas`;
+    document.getElementById('capacityBar').style.width = `${Math.min(capacityPercent, 100)}%`;
+
+    // Tabela de entregas
+    let deliveriesHtml = `<thead><tr><th>Encomenda</th><th>Morada de entrega</th><th>Hora prevista</th><th>Estado</th></tr></thead><tbody>`;
+    if (totalDeliveries === 0) {
+        deliveriesHtml += `<tr><td colspan="4" style="text-align:center;">Sem entregas atribuídas para hoje.</td></tr>`;
+    } else {
+        courier.deliveries.forEach(d => {
+            const badgeClass = d.status === 'Entregue' ? 'badge-success' : (d.status === 'Em curso' ? 'badge-warning' : 'badge-error');
+            deliveriesHtml += `<tr><td><strong>${d.id}</strong></td><td>${d.address}</td><td>${d.time}</td><td><span class="badge ${badgeClass}">${d.status}</span></td></tr>`;
+        });
+    }
+    deliveriesHtml += `</tbody>`;
+    document.getElementById('deliveriesTable').innerHTML = deliveriesHtml;
+
+    // Botões de alterar disponibilidade (simulação)
+    document.querySelectorAll('[data-status]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const newStatus = btn.getAttribute('data-status');
+            alert(`Funcionalidade: alterar estado para "${newStatus}". (Integrar com backend futuramente)`);
+            // Exemplo: recarregar a página com o novo status?
+            // Aqui apenas demonstra a intenção.
+        });
+    });
+
+    // Fallback para páginas não implementadas na sidebar
+    document.querySelectorAll('a[data-missing]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert(`A página "${link.getAttribute('data-missing')}" será implementada em breve.`);
+        });
+    });
+</script>
 </body>
 </html>

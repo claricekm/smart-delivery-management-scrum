@@ -1,299 +1,170 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Estafetas — SmartDelivery</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../assets/css/style.css"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Estafetas — SmartDelivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/style.css"/>
+    <style>
+        /* fallback para páginas não implementadas - mantém o estilo existente */
+        .btn-link { color: var(--primary); text-decoration: none; }
+        .btn-link:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
+
 <aside class="sidebar">
-  <div class="sidebar-logo">
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <rect width="28" height="28" rx="7" fill="#01696f"/>
-      <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    SmartDelivery
-  </div>
-  <nav class="sidebar-nav">
-    <div class="nav-section">Principal</div>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      Dashboard
-    </a>
-    <div class="nav-section">Gestão</div>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Clientes
-    </a>
-    <a href="lista-estafetas.html" class="nav-item active">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-      Estafetas
-    </a>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
-      Encomendas
-    </a>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Entregas
-    </a>
-    <div class="nav-section">Recursos</div>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-      Veículos
-    </a>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-      Indicadores
-    </a>
-  </nav>
+    <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#01696f"/>
+            <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        SmartDelivery
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Dashboard
+        </a>
+        <div class="nav-section">Gestão</div>
+        <a href="../clientes/lista-clientes.Html" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Clientes
+        </a>
+        <a href="../estafetas/lista-estafetas.html" class="nav-item active">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            Estafetas
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+            Encomendas
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Entregas
+        </a>
+        <div class="nav-section">Recursos</div>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Veículos
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Indicadores
+        </a>
+    </nav>
 </aside>
 
 <header class="topbar">
-  <div>
-    <div class="topbar-title">Gestão de Estafetas</div>
-    <div class="breadcrumb">Gestão › <span>Estafetas</span></div>
-  </div>
-  <div class="topbar-actions">
-    <a href="registo-estafeta.html" class="btn btn-primary btn-sm">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      Novo Estafeta
-    </a>
-    <div class="user-avatar">MO</div>
-  </div>
+    <div>
+        <div class="topbar-title">Gestão de Estafetas</div>
+        <div class="breadcrumb">Gestão › <span>Estafetas</span></div>
+    </div>
+    <div class="topbar-actions">
+        <a href="registo-estafeta.html" class="btn btn-primary btn-sm">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Novo Estafeta
+        </a>
+        <div class="user-avatar">MO</div>
+    </div>
 </header>
 
 <main class="main">
-  <div class="page-header">
-    <div>
-      <div class="page-title">Estafetas</div>
-      <div class="page-subtitle">Consulte e filtre os estafetas por disponibilidade, zona e veículo.</div>
+    <div class="page-header">
+        <div>
+            <div class="page-title">Estafetas</div>
+            <div class="page-subtitle">Consulte e filtre os estafetas por disponibilidade, zona e veículo.</div>
+        </div>
     </div>
-  </div>
 
-  <!-- US06/US07 — STATS: visão geral de disponibilidade e carga -->
-  <div class="stats-row">
-    <div class="stat-card">
-      <div class="stat-value" style="color:var(--text)">12</div>
-      <div class="stat-label">Total de estafetas</div>
+    <!-- STATS -->
+    <div class="stats-row">
+        <div class="stat-card"><div class="stat-value" style="color:var(--text)">12</div><div class="stat-label">Total de estafetas</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:var(--success)">8</div><div class="stat-label">Disponíveis agora</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:var(--warning)">3</div><div class="stat-label">Ocupados</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:var(--error)">1</div><div class="stat-label">Indisponíveis</div></div>
     </div>
-    <div class="stat-card">
-      <div class="stat-value" style="color:var(--success)">8</div>
-      <div class="stat-label">Disponíveis agora</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value" style="color:var(--warning)">3</div>
-      <div class="stat-label">Ocupados</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value" style="color:var(--error)">1</div>
-      <div class="stat-label">Indisponíveis</div>
-    </div>
-  </div>
 
-  <!-- US06 CA3 — Filtro por disponibilidade bem visível -->
-  <div class="search-bar">
-    <div class="search-input-wrap">
-      <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" class="search-input" placeholder="Pesquisar por nome..."/>
+    <!-- FILTROS (exemplo) -->
+    <div class="search-bar">
+        <div class="search-input-wrap">
+            <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" class="search-input" placeholder="Pesquisar por nome..."/>
+        </div>
+        <select class="filter-select"><option>Todos os estados</option><option>✅ Disponível</option><option>🟡 Ocupado</option><option>🔴 Indisponível</option></select>
+        <select class="filter-select"><option>Todas as zonas</option><option>Lisboa Centro</option><option>Lisboa Norte</option><option>Lisboa Sul</option><option>Cascais</option><option>Sintra</option></select>
+        <select class="filter-select"><option>Todos os veículos</option><option>Moto</option><option>Bicicleta</option><option>Carrinha</option></select>
+        <select class="filter-select"><option>Todos os horários</option><option>08:00–16:00</option><option>09:00–17:00</option><option>12:00–20:00</option><option>14:00–22:00</option></select>
     </div>
-    <!-- Filtro de disponibilidade destacado -->
-    <select class="filter-select" style="border:2px solid var(--primary);color:var(--primary);font-weight:600;">
-      <option>Todos os estados</option>
-      <option>✅ Disponível</option>
-      <option>🟡 Ocupado</option>
-      <option>🔴 Indisponível</option>
-    </select>
-    <select class="filter-select">
-      <option>Todas as zonas</option>
-      <option>Lisboa Centro</option>
-      <option>Lisboa Norte</option>
-      <option>Lisboa Sul</option>
-      <option>Cascais</option>
-      <option>Sintra</option>
-    </select>
-    <select class="filter-select">
-      <option>Todos os veículos</option>
-      <option>Moto</option>
-      <option>Bicicleta</option>
-      <option>Carrinha</option>
-    </select>
-    <select class="filter-select">
-      <option>Todos os horários</option>
-      <option>08:00 – 16:00</option>
-      <option>09:00 – 17:00</option>
-      <option>12:00 – 20:00</option>
-      <option>14:00 – 22:00</option>
-    </select>
-  </div>
 
-  <!-- US06 + US07 — TABELA com disponibilidade e carga de trabalho comparável -->
-  <div class="card" style="padding:0;margin-bottom:16px;">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Estafeta</th>
-          <th>Zona</th>
-          <th>Veículo</th>
-          <th>Horário</th>
-          <!-- US06 CA3 — Disponibilidade claramente visível -->
-          <th>Disponibilidade</th>
-          <!-- US07 CA2 — Carga de trabalho comparável entre estafetas -->
-          <th>Carga hoje</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <div class="courier-info">
-              <div class="avatar">JS</div>
-              <div><div class="courier-name">João Silva</div><div class="courier-meta">joao.silva@email.com</div></div>
-            </div>
-          </td>
-          <td>Lisboa Centro</td>
-          <td><span class="tag">🏍️ Moto</span></td>
-          <td>09:00–17:00</td>
-          <td><span class="badge badge-success">● Disponível</span></td>
-          <td style="min-width:140px">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <div style="flex:1">
-                <div class="progress-bar-bg"><div class="progress-bar-fill progress-low" style="width:50%"></div></div>
-              </div>
-              <span style="font-size:12px;font-weight:600;color:var(--text-muted);white-space:nowrap">5/10</span>
-            </div>
-          </td>
-          <td>
-            <div class="table-actions">
-              <a href="detalhe-estafeta.html" class="btn btn-secondary btn-sm">Ver</a>
-              <a href="registo-estafeta.html" class="btn btn-secondary btn-sm">Editar</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="courier-info">
-              <div class="avatar">MC</div>
-              <div><div class="courier-name">Maria Costa</div><div class="courier-meta">maria.costa@email.com</div></div>
-            </div>
-          </td>
-          <td>Lisboa Norte</td>
-          <td><span class="tag">🚲 Bicicleta</span></td>
-          <td>08:00–16:00</td>
-          <!-- US06 CA3 — Estado ocupado claramente visível -->
-          <td><span class="badge badge-warning">● Ocupado</span></td>
-          <td style="min-width:140px">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <div style="flex:1">
-                <div class="progress-bar-bg"><div class="progress-bar-fill progress-med" style="width:70%"></div></div>
-              </div>
-              <span style="font-size:12px;font-weight:600;color:var(--text-muted);white-space:nowrap">7/10</span>
-            </div>
-          </td>
-          <td>
-            <div class="table-actions">
-              <a href="detalhe-estafeta.html" class="btn btn-secondary btn-sm">Ver</a>
-              <a href="registo-estafeta.html" class="btn btn-secondary btn-sm">Editar</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="courier-info">
-              <div class="avatar">RF</div>
-              <div><div class="courier-name">Rui Ferreira</div><div class="courier-meta">rui.ferreira@email.com</div></div>
-            </div>
-          </td>
-          <td>Cascais</td>
-          <td><span class="tag">🚐 Carrinha</span></td>
-          <td>12:00–20:00</td>
-          <td><span class="badge badge-success">● Disponível</span></td>
-          <td style="min-width:140px">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <div style="flex:1">
-                <div class="progress-bar-bg"><div class="progress-bar-fill progress-low" style="width:30%"></div></div>
-              </div>
-              <span style="font-size:12px;font-weight:600;color:var(--text-muted);white-space:nowrap">3/10</span>
-            </div>
-          </td>
-          <td>
-            <div class="table-actions">
-              <a href="detalhe-estafeta.html" class="btn btn-secondary btn-sm">Ver</a>
-              <a href="registo-estafeta.html" class="btn btn-secondary btn-sm">Editar</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="courier-info">
-              <div class="avatar">AP</div>
-              <div><div class="courier-name">Ana Pereira</div><div class="courier-meta">ana.pereira@email.com</div></div>
-            </div>
-          </td>
-          <td>Lisboa Sul</td>
-          <td><span class="tag">🏍️ Moto</span></td>
-          <td>14:00–22:00</td>
-          <!-- US06 CA3 — Estado indisponível claramente visível -->
-          <td><span class="badge badge-error">● Indisponível</span></td>
-          <!-- US07 CA3 — Estafeta sem entregas: carga nula -->
-          <td style="min-width:140px">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <div style="flex:1">
-                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%"></div></div>
-              </div>
-              <span style="font-size:12px;font-weight:600;color:var(--text-muted);white-space:nowrap">0/10</span>
-            </div>
-          </td>
-          <td>
-            <div class="table-actions">
-              <a href="detalhe-estafeta.html" class="btn btn-secondary btn-sm">Ver</a>
-              <a href="registo-estafeta.html" class="btn btn-secondary btn-sm">Editar</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="courier-info">
-              <div class="avatar">TG</div>
-              <div><div class="courier-name">Tiago Gomes</div><div class="courier-meta">tiago.gomes@email.com</div></div>
-            </div>
-          </td>
-          <td>Sintra</td>
-          <td><span class="tag">🚲 Bicicleta</span></td>
-          <td>09:00–17:00</td>
-          <td><span class="badge badge-success">● Disponível</span></td>
-          <td style="min-width:140px">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <div style="flex:1">
-                <div class="progress-bar-bg"><div class="progress-bar-fill progress-high" style="width:90%"></div></div>
-              </div>
-              <span style="font-size:12px;font-weight:600;color:var(--error);white-space:nowrap">9/10</span>
-            </div>
-          </td>
-          <td>
-            <div class="table-actions">
-              <a href="detalhe-estafeta.html" class="btn btn-secondary btn-sm">Ver</a>
-              <a href="registo-estafeta.html" class="btn btn-secondary btn-sm">Editar</a>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div style="display:flex;justify-content:space-between;align-items:center;">
-    <div style="font-size:13px;color:var(--text-muted)">A mostrar 5 de 12 estafetas</div>
-    <div style="display:flex;gap:6px;">
-      <button class="btn btn-secondary btn-sm">← Anterior</button>
-      <button class="btn btn-primary btn-sm">1</button>
-      <button class="btn btn-secondary btn-sm">2</button>
-      <button class="btn btn-secondary btn-sm">3</button>
-      <button class="btn btn-secondary btn-sm">Próximo →</button>
+    <!-- TABELA COM IDs NOS LINKS -->
+    <div class="card" style="padding:0;margin-bottom:16px;">
+        <table class="table">
+            <thead><tr><th>Estafeta</th><th>Zona</th><th>Veículo</th><th>Horário</th><th>Disponibilidade</th><th>Carga hoje</th><th>Ações</th></tr></thead>
+            <tbody>
+            <!-- ID 0 -->
+            <tr>
+                <td><div class="courier-info"><div class="avatar">JS</div><div><div class="courier-name">João Silva</div><div class="courier-meta">joao.silva@email.com</div></div></div></td>
+                <td>Lisboa Centro</td><td><span class="tag">🏍️ Moto</span></td><td>09:00–17:00</td><td><span class="badge badge-success">● Disponível</span></td>
+                <td><div style="display:flex;align-items:center;gap:8px;"><div class="progress-bar-bg" style="flex:1"><div class="progress-bar-fill" style="width:50%"></div></div><span>5/10</span></div></td>
+                <td><div class="table-actions"><a href="detalhe-estafeta.html?id=0" class="btn btn-secondary btn-sm">Ver</a><a href="registo-estafeta.html?id=0" class="btn btn-secondary btn-sm">Editar</a></div></td>
+            </tr>
+            <!-- ID 1 -->
+            <tr>
+                <td><div class="courier-info"><div class="avatar">MC</div><div><div class="courier-name">Maria Costa</div><div class="courier-meta">maria.costa@email.com</div></div></div></td>
+                <td>Lisboa Norte</td><td><span class="tag">🚲 Bicicleta</span></td><td>08:00–16:00</td><td><span class="badge badge-warning">● Ocupado</span></td>
+                <td><div style="display:flex;align-items:center;gap:8px;"><div class="progress-bar-bg" style="flex:1"><div class="progress-bar-fill" style="width:70%"></div></div><span>7/10</span></div></td>
+                <td><div class="table-actions"><a href="detalhe-estafeta.html?id=1" class="btn btn-secondary btn-sm">Ver</a><a href="registo-estafeta.html?id=1" class="btn btn-secondary btn-sm">Editar</a></div></td>
+            </tr>
+            <!-- ID 2 -->
+            <tr>
+                <td><div class="courier-info"><div class="avatar">RF</div><div><div class="courier-name">Rui Ferreira</div><div class="courier-meta">rui.ferreira@email.com</div></div></div></td>
+                <td>Cascais</td><td><span class="tag">🚐 Carrinha</span></td><td>12:00–20:00</td><td><span class="badge badge-success">● Disponível</span></td>
+                <td><div style="display:flex;align-items:center;gap:8px;"><div class="progress-bar-bg" style="flex:1"><div class="progress-bar-fill" style="width:30%"></div></div><span>3/10</span></div></td>
+                <td><div class="table-actions"><a href="detalhe-estafeta.html?id=2" class="btn btn-secondary btn-sm">Ver</a><a href="registo-estafeta.html?id=2" class="btn btn-secondary btn-sm">Editar</a></div></td>
+            </tr>
+            <!-- ID 3 -->
+            <tr>
+                <td><div class="courier-info"><div class="avatar">AP</div><div><div class="courier-name">Ana Pereira</div><div class="courier-meta">ana.pereira@email.com</div></div></div></td>
+                <td>Lisboa Sul</td><td><span class="tag">🏍️ Moto</span></td><td>14:00–22:00</td><td><span class="badge badge-error">● Indisponível</span></td>
+                <td><div style="display:flex;align-items:center;gap:8px;"><div class="progress-bar-bg" style="flex:1"><div class="progress-bar-fill" style="width:0%"></div></div><span>0/10</span></div></td>
+                <td><div class="table-actions"><a href="detalhe-estafeta.html?id=3" class="btn btn-secondary btn-sm">Ver</a><a href="registo-estafeta.html?id=3" class="btn btn-secondary btn-sm">Editar</a></div></td>
+            </tr>
+            <!-- ID 4 -->
+            <tr>
+                <td><div class="courier-info"><div class="avatar">TG</div><div><div class="courier-name">Tiago Gomes</div><div class="courier-meta">tiago.gomes@email.com</div></div></div></td>
+                <td>Sintra</td><td><span class="tag">🚲 Bicicleta</span></td><td>09:00–17:00</td><td><span class="badge badge-success">● Disponível</span></td>
+                <td><div style="display:flex;align-items:center;gap:8px;"><div class="progress-bar-bg" style="flex:1"><div class="progress-bar-fill" style="width:90%"></div></div><span>9/10</span></div></td>
+                <td><div class="table-actions"><a href="detalhe-estafeta.html?id=4" class="btn btn-secondary btn-sm">Ver</a><a href="registo-estafeta.html?id=4" class="btn btn-secondary btn-sm">Editar</a></div></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-  </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div style="font-size:13px;color:var(--text-muted)">A mostrar 5 de 12 estafetas</div>
+        <div style="display:flex;gap:6px;">
+            <button class="btn btn-secondary btn-sm">← Anterior</button>
+            <button class="btn btn-primary btn-sm">1</button>
+            <button class="btn btn-secondary btn-sm">2</button>
+            <button class="btn btn-secondary btn-sm">3</button>
+            <button class="btn btn-secondary btn-sm">Próximo →</button>
+        </div>
+    </div>
 </main>
+
+<script>
+    // Fallback para páginas não implementadas
+    document.querySelectorAll('a[data-missing]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert(`A página "${link.getAttribute('data-missing')}" será implementada em breve.`);
+        });
+    });
+    // Marcar item activo na sidebar (já está com classe "active" no Estafetas)
+</script>
 </body>
 </html>

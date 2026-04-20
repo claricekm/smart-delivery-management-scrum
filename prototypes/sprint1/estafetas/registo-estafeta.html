@@ -1,190 +1,164 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Registar Estafeta — SmartDelivery</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../assets/css/style.css"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Registar Estafeta — SmartDelivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/style.css"/>
 </head>
 <body>
+
 <aside class="sidebar">
-  <div class="sidebar-logo">
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <rect width="28" height="28" rx="7" fill="#01696f"/>
-      <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    SmartDelivery
-  </div>
-  <nav class="sidebar-nav">
-    <div class="nav-section">Principal</div>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      Dashboard
-    </a>
-    <div class="nav-section">Gestão</div>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Clientes
-    </a>
-    <a href="lista-estafetas.html" class="nav-item active">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-      Estafetas
-    </a>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
-      Encomendas
-    </a>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Entregas
-    </a>
-    <div class="nav-section">Recursos</div>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-      Veículos
-    </a>
-    <a href="#" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-      Indicadores
-    </a>
-  </nav>
+    <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#01696f"/>
+            <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        SmartDelivery
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Dashboard
+        </a>
+        <div class="nav-section">Gestão</div>
+        <a href="../clientes/lista-clientes.Html" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Clientes
+        </a>
+        <a href="../estafetas/lista-estafetas.html" class="nav-item active">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            Estafetas
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+            Encomendas
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Entregas
+        </a>
+        <div class="nav-section">Recursos</div>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Veículos
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Indicadores
+        </a>
+    </nav>
 </aside>
 
 <header class="topbar">
-  <div>
-    <div class="topbar-title">Registar Estafeta</div>
-    <div class="breadcrumb">Estafetas › <span>Novo Registo</span></div>
-  </div>
-  <div class="topbar-actions">
-    <a href="lista-estafetas.html" class="btn btn-secondary btn-sm">← Voltar à lista</a>
-    <div class="user-avatar">MO</div>
-  </div>
+    <div>
+        <div class="topbar-title" id="formTitle">Registar Estafeta</div>
+        <div class="breadcrumb">Estafetas › <span id="formBreadcrumb">Novo Registo</span></div>
+    </div>
+    <div class="topbar-actions">
+        <a href="lista-estafetas.html" class="btn btn-secondary btn-sm">← Voltar à lista</a>
+        <div class="user-avatar">MO</div>
+    </div>
 </header>
 
 <main class="main">
-  <div class="page-header">
-    <div>
-      <div class="page-title">Novo Estafeta</div>
-      <div class="page-subtitle">Preencha todos os campos obrigatórios para registar um novo estafeta no sistema.</div>
+    <div class="page-header">
+        <div><div class="page-title" id="pageTitle">Novo Estafeta</div><div class="page-subtitle">Preencha todos os campos obrigatórios para registar um novo estafeta.</div></div>
     </div>
-  </div>
 
-  <!-- US05 CA2 — Mensagem de validação quando campos em falta -->
-  <div class="alert alert-error">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-    <div><strong>Não foi possível guardar o estafeta.</strong> Existem campos obrigatórios por preencher. Por favor corrija os erros assinalados abaixo.</div>
-  </div>
+    <div class="alert alert-error" id="errorMsg" style="display:none">...</div>
 
-  <form>
-  <div class="card">
-    <div class="form-section-title">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      Dados Pessoais
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">Nome completo <span class="required">*</span></label>
-        <input type="text" class="form-input error" placeholder="Ex: João Manuel Silva" value=""/>
-        <div class="form-error">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          O nome completo é obrigatório.
+    <form id="courierForm">
+        <div class="card">
+            <div class="form-section-title">Dados Pessoais</div>
+            <div class="form-row">
+                <div class="form-group"><label class="form-label">Nome completo <span class="required">*</span></label><input type="text" id="nome" class="form-input" placeholder="Ex: João Manuel Silva"/></div>
+                <div class="form-group"><label class="form-label">NIF <span class="required">*</span></label><input type="text" id="nif" class="form-input" placeholder="Ex: 234 567 890"/></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label class="form-label">Telemóvel <span class="required">*</span></label><input type="tel" id="telemovel" class="form-input" placeholder="Ex: 912 345 678"/></div>
+                <div class="form-group"><label class="form-label">Email <span class="required">*</span></label><input type="email" id="email" class="form-input" placeholder="Ex: joao.silva@email.com"/></div>
+            </div>
+            <div class="form-group"><label class="form-label">Morada</label><input type="text" id="morada" class="form-input" placeholder="Ex: Rua das Flores, 12, Lisboa"/></div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">NIF <span class="required">*</span></label>
-        <input type="text" class="form-input" placeholder="Ex: 234 567 890" value="234567890"/>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">Telemóvel <span class="required">*</span></label>
-        <input type="tel" class="form-input error" placeholder="Ex: 912 345 678" value=""/>
-        <div class="form-error">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          O telemóvel é obrigatório.
+
+        <div class="card">
+            <div class="form-section-title">Dados Operacionais</div>
+            <div class="form-row">
+                <div class="form-group"><label class="form-label">Tipo de veículo <span class="required">*</span></label><select id="veiculo" class="form-select"><option value="">Selecionar...</option><option>Moto</option><option>Bicicleta</option><option>Carrinha</option></select></div>
+                <div class="form-group"><label class="form-label">Zona de operação <span class="required">*</span></label><select id="zona" class="form-select"><option value="">Selecionar...</option><option>Lisboa Centro</option><option>Lisboa Norte</option><option>Lisboa Sul</option><option>Cascais</option><option>Sintra</option></select></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label class="form-label">Disponibilidade inicial <span class="required">*</span></label><select id="disponibilidade" class="form-select"><option>Disponível</option><option>Indisponível</option></select></div>
+                <div class="form-group"><label class="form-label">Horário de trabalho <span class="required">*</span></label><select id="horario" class="form-select"><option>08:00–16:00</option><option>09:00–17:00</option><option>12:00–20:00</option><option>14:00–22:00</option></select></div>
+            </div>
+            <div class="form-actions">
+                <a href="lista-estafetas.html" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar Estafeta</button>
+            </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Email <span class="required">*</span></label>
-        <input type="email" class="form-input" placeholder="Ex: joao.silva@email.com" value="joao.silva@email.com"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Morada</label>
-      <input type="text" class="form-input" placeholder="Ex: Rua das Flores, 12, Lisboa"/>
-      <div class="form-hint">Campo opcional.</div>
-    </div>
-  </div>
+    </form>
 
-  <div class="card">
-    <div class="form-section-title">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Dados Operacionais
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">Tipo de veículo <span class="required">*</span></label>
-        <select class="form-select">
-          <option value="">Selecionar...</option>
-          <option selected>Moto</option>
-          <option>Bicicleta</option>
-          <option>Carrinha</option>
-          <option>A pé</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Zona de operação <span class="required">*</span></label>
-        <select class="form-select">
-          <option value="">Selecionar...</option>
-          <option selected>Lisboa Centro</option>
-          <option>Lisboa Norte</option>
-          <option>Lisboa Sul</option>
-          <option>Cascais</option>
-          <option>Sintra</option>
-          <option>Almada</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">Disponibilidade inicial <span class="required">*</span></label>
-        <select class="form-select">
-          <option selected>Disponível</option>
-          <option>Indisponível</option>
-        </select>
-        <div class="form-hint">Pode ser alterada a qualquer momento após o registo.</div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Horário de trabalho <span class="required">*</span></label>
-        <select class="form-select">
-          <option>08:00 – 16:00</option>
-          <option selected>09:00 – 17:00</option>
-          <option>12:00 – 20:00</option>
-          <option>14:00 – 22:00</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Observações</label>
-      <textarea class="form-textarea" placeholder="Informações adicionais sobre o estafeta..."></textarea>
-    </div>
-    <div class="form-actions">
-      <a href="lista-estafetas.html" class="btn btn-secondary">Cancelar</a>
-      <button type="submit" class="btn btn-primary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        Guardar Estafeta
-      </button>
-    </div>
-  </div>
-  </form>
-
-  <!-- US05 CA3 — Nota: após guardar com sucesso, estafeta aparece na lista -->
-  <div class="alert alert-success" style="display:none" id="successMsg">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
-    <div>Estafeta registado com sucesso! Foi adicionado à <a href="lista-estafetas.html" class="btn-link">lista de estafetas</a>.</div>
-  </div>
+    <div class="alert alert-success" id="successMsg" style="display:none">Estafeta guardado com sucesso!</div>
 </main>
+
+<script>
+    // Base de dados local (para edição)
+    const couriersDB = [
+        { id:0, nome:"João Manuel Silva", nif:"234567890", telemovel:"912345678", email:"joao.silva@email.com", morada:"Rua das Flores, 12, Lisboa", veiculo:"Moto", zona:"Lisboa Centro", disponibilidade:"Disponível", horario:"09:00–17:00" },
+        { id:1, nome:"Maria Costa", nif:"345678901", telemovel:"923456789", email:"maria.costa@email.com", morada:"Av. da Liberdade, 45, Lisboa", veiculo:"Bicicleta", zona:"Lisboa Norte", disponibilidade:"Ocupado", horario:"08:00–16:00" },
+        { id:2, nome:"Rui Ferreira", nif:"456789012", telemovel:"934567890", email:"rui.ferreira@email.com", morada:"Rua Augusta, 78, Cascais", veiculo:"Carrinha", zona:"Cascais", disponibilidade:"Disponível", horario:"12:00–20:00" },
+        { id:3, nome:"Ana Pereira", nif:"567890123", telemovel:"945678901", email:"ana.pereira@email.com", morada:"Largo do Chiado, 9, Lisboa", veiculo:"Moto", zona:"Lisboa Sul", disponibilidade:"Indisponível", horario:"14:00–22:00" },
+        { id:4, nome:"Tiago Gomes", nif:"678901234", telemovel:"956789012", email:"tiago.gomes@email.com", morada:"Estrada de Sintra, 23, Sintra", veiculo:"Bicicleta", zona:"Sintra", disponibilidade:"Disponível", horario:"09:00–17:00" }
+    ];
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const editId = urlParams.get('id');
+    let isEdit = false;
+    let currentId = null;
+
+    if (editId !== null) {
+        const found = couriersDB.find(c => c.id == editId);
+        if (found) {
+            isEdit = true;
+            currentId = found.id;
+            document.getElementById('formTitle').innerText = "Editar Estafeta";
+            document.getElementById('formBreadcrumb').innerText = "Editar Registo";
+            document.getElementById('pageTitle').innerText = "Editar Estafeta";
+            // Preencher campos
+            document.getElementById('nome').value = found.nome;
+            document.getElementById('nif').value = found.nif;
+            document.getElementById('telemovel').value = found.telemovel;
+            document.getElementById('email').value = found.email;
+            document.getElementById('morada').value = found.morada;
+            document.getElementById('veiculo').value = found.veiculo;
+            document.getElementById('zona').value = found.zona;
+            document.getElementById('disponibilidade').value = found.disponibilidade;
+            document.getElementById('horario').value = found.horario;
+        }
+    }
+
+    document.getElementById('courierForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Validação simples
+        const nome = document.getElementById('nome').value.trim();
+        if (!nome) { showError("Nome é obrigatório."); return; }
+        // ... outras validações
+        showSuccess(isEdit ? "Estafeta atualizado com sucesso!" : "Estafeta registado com sucesso!");
+        // Aqui poderia guardar no localStorage ou enviar para servidor
+        setTimeout(() => { window.location.href = "lista-estafetas.html"; }, 1500);
+    });
+
+    function showError(msg) { const el = document.getElementById('errorMsg'); el.innerHTML = `<div><strong>Erro:</strong> ${msg}</div>`; el.style.display = 'flex'; setTimeout(() => el.style.display = 'none', 3000); }
+    function showSuccess(msg) { const el = document.getElementById('successMsg'); el.innerHTML = `<div>${msg}</div>`; el.style.display = 'flex'; setTimeout(() => el.style.display = 'none', 3000); }
+
+    // Fallback sidebar
+    document.querySelectorAll('a[data-missing]').forEach(link => {
+        link.addEventListener('click', (e) => { e.preventDefault(); alert(`Página "${link.getAttribute('data-missing')}" em breve.`); });
+    });
+</script>
 </body>
 </html>
