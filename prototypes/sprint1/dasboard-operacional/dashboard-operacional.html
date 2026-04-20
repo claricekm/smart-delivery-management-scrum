@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDelivery - Dashboard Operacional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#01696f"/>
+            <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        SmartDelivery
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="index.html" class="nav-item active">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Dashboard
+        </a>
+        <div class="nav-section">Gestão</div>
+        <a href="../clientes/lista-clientes.html" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Clientes
+        </a>
+        <a href="../estafetas/lista-estafetas.html" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            Estafetas
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+            Encomendas
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Entregas
+        </a>
+        <div class="nav-section">Recursos</div>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Veículos
+        </a>
+        <a href="../indicadores/dashboard-indicadores.html" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Indicadores
+        </a>
+        <div class="nav-section">Comunicação</div>
+        <a href="../comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+        <a href="../comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+    </nav>
+</aside>
+
+<header class="topbar">
+    <div>
+        <div class="topbar-title">Dashboard Operacional</div>
+        <div class="breadcrumb">Principal › <span>Visão Geral da Operação</span></div>
+    </div>
+    <div class="topbar-actions">
+        <div class="user-avatar">AR</div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="page-header">
+        <div>
+            <div class="page-title">📊 Visão Geral da Operação</div>
+            <div class="page-subtitle">Acompanhe o estado atual das entregas, estafetas e zonas</div>
+        </div>
+        <div class="topbar-actions">
+            <span style="font-size:12px;color:var(--text-muted)">Última atualização: 20/04/2026 09:45</span>
+        </div>
+    </div>
+
+    <div class="dashboard-stats-row">
+        <div class="dashboard-stat-card">
+            <div class="dashboard-stat-icon">📦</div>
+            <div class="dashboard-stat-value">23</div>
+            <div class="dashboard-stat-label">Encomendas Pendentes</div>
+            <div class="dashboard-stat-change">+3 desde ontem</div>
+        </div>
+        <div class="dashboard-stat-card">
+            <div class="dashboard-stat-icon">✅</div>
+            <div class="dashboard-stat-value">18</div>
+            <div class="dashboard-stat-label">Entregas Hoje</div>
+            <div class="dashboard-stat-change">12 já realizadas · 6 em curso</div>
+        </div>
+        <div class="dashboard-stat-card">
+            <div class="dashboard-stat-icon">🛵</div>
+            <div class="dashboard-stat-value">8</div>
+            <div class="dashboard-stat-label">Estafetas Disponíveis</div>
+            <div class="dashboard-stat-change">4 ocupados · 12 no total</div>
+        </div>
+        <div class="dashboard-stat-card">
+            <div class="dashboard-stat-icon">⏱️</div>
+            <div class="dashboard-stat-value">2.3</div>
+            <div class="dashboard-stat-label">Tempo Médio Entrega (dias)</div>
+            <div class="dashboard-stat-change">Meta: 2.0 dias</div>
+        </div>
+    </div>
+
+    <div class="dashboard-two-columns">
+        <div class="card">
+            <div class="dashboard-card-header">
+                <div class="dashboard-card-title">⏳ Encomendas Pendentes</div>
+                <a href="#" class="dashboard-view-link">Ver todas →</a>
+            </div>
+            <div class="dashboard-pending-list">
+                <div class="dashboard-pending-item">
+                    <div class="dashboard-pending-info">
+                        <div class="dashboard-pending-id">#EN-2451</div>
+                        <div class="dashboard-pending-address">Rua Augusta, 123 - Centro</div>
+                    </div>
+                    <span class="dashboard-badge-pending">A aguardar</span>
+                </div>
+                <div class="dashboard-pending-item">
+                    <div class="dashboard-pending-info">
+                        <div class="dashboard-pending-id">#EN-2450</div>
+                        <div class="dashboard-pending-address">Av. Liberdade, 45 - Norte</div>
+                    </div>
+                    <span class="dashboard-badge-pending">A aguardar</span>
+                </div>
+                <div class="dashboard-pending-item">
+                    <div class="dashboard-pending-info">
+                        <div class="dashboard-pending-id">#EN-2448</div>
+                        <div class="dashboard-pending-address">Rua dos Aliados, 22 - Centro</div>
+                    </div>
+                    <span class="dashboard-badge-pending">A aguardar</span>
+                </div>
+                <div class="dashboard-pending-item">
+                    <div class="dashboard-pending-info">
+                        <div class="dashboard-pending-id">#EN-2446</div>
+                        <div class="dashboard-pending-address">Praça do Comércio, 5 - Sul</div>
+                    </div>
+                    <span class="dashboard-badge-pending">A aguardar</span>
+                </div>
+                <div class="dashboard-pending-item">
+                    <div class="dashboard-pending-info">
+                        <div class="dashboard-pending-id">#EN-2445</div>
+                        <div class="dashboard-pending-address">Rua do Ouro, 78 - Centro</div>
+                    </div>
+                    <span class="dashboard-badge-pending">A aguardar</span>
+                </div>
+            </div>
+            <div class="dashboard-summary-box">+18 outras encomendas pendentes</div>
+        </div>
+
+        <div class="card">
+            <div class="dashboard-card-header">
+                <div class="dashboard-card-title">🛵 Estafetas Disponíveis</div>
+                <a href="../estafetas/lista-estafetas.html" class="dashboard-view-link">Gerir →</a>
+            </div>
+            <div class="dashboard-courier-list">
+                <div class="dashboard-courier-item">
+                    <div class="dashboard-courier-info">
+                        <div class="dashboard-courier-name">João Silva</div>
+                        <div class="dashboard-courier-zone">Zona: Centro · Moto</div>
+                    </div>
+                    <span class="dashboard-badge-available">Disponível</span>
+                </div>
+                <div class="dashboard-courier-item">
+                    <div class="dashboard-courier-info">
+                        <div class="dashboard-courier-name">Rui Ferreira</div>
+                        <div class="dashboard-courier-zone">Zona: Cascais · Carrinha</div>
+                    </div>
+                    <span class="dashboard-badge-available">Disponível</span>
+                </div>
+                <div class="dashboard-courier-item">
+                    <div class="dashboard-courier-info">
+                        <div class="dashboard-courier-name">Tiago Gomes</div>
+                        <div class="dashboard-courier-zone">Zona: Sintra · Bicicleta</div>
+                    </div>
+                    <span class="dashboard-badge-available">Disponível</span>
+                </div>
+                <div class="dashboard-courier-item">
+                    <div class="dashboard-courier-info">
+                        <div class="dashboard-courier-name">Maria Costa</div>
+                        <div class="dashboard-courier-zone">Zona: Norte · Bicicleta</div>
+                    </div>
+                    <span class="dashboard-badge-busy">Ocupado</span>
+                </div>
+                <div class="dashboard-courier-item">
+                    <div class="dashboard-courier-info">
+                        <div class="dashboard-courier-name">Ana Pereira</div>
+                        <div class="dashboard-courier-zone">Zona: Sul · Moto</div>
+                    </div>
+                    <span class="dashboard-badge-off">Indisponível</span>
+                </div>
+            </div>
+            <div class="dashboard-summary-box">8 disponíveis · 4 ocupados/indisponíveis</div>
+        </div>
+    </div>
+
+    <div class="dashboard-two-columns">
+        <div class="card">
+            <div class="dashboard-card-header">
+                <div class="dashboard-card-title">✅ Entregas do Dia (18)</div>
+                <a href="#" class="dashboard-view-link">Detalhe →</a>
+            </div>
+            <div class="dashboard-pending-list">
+                <div class="dashboard-pending-item">
+                    <div class="dashboard-pending-info">
+                        <div class="dashboard-pending-id">#EN-2449</div>
+                        <div class="dashboard-pending-address">Praça da República, 78 - Sul</div>
+                        <div class="dashboard-delivery-time">Estafeta: Ana Pereira · Prev: 10:30</div>
+                    </div>
+                    <span class="dashboard-badge-delivering">Em distribuição</span>
+                </div>
+                <div class="dashboard-pending-item">
+                    <div class="dashboard-pending-info">
+                        <div class="dashboard-pending-id">#EN-2447</div>
+                        <div class="dashboard-pending-address">Av. Combatentes, 99 - Norte</div>
+                        <div class="dashboard-delivery-time">Estafeta: Maria Costa · Prev: 11:00</div>
+                    </div>
+                    <span class="dashboard-badge-delivering">Em distribuição</span>
+                </div>
+                <div class="dashboard-pending-item">
+                    <div class="dashboard-pending-info">
+                        <div class="dashboard-pending-id">#EN-2444</div>
+                        <div class="dashboard-pending-address">Rua do Alecrim, 12 - Centro</div>
+                        <div class="dashboard-delivery-time">Estafeta: João Silva · Prev: 11:30</div>
+                    </div>
+                    <span class="dashboard-badge-delivering">Em distribuição</span>
+                </div>
+            </div>
+            <div class="dashboard-summary-box"><strong>12 entregas já realizadas</strong> · 6 em curso</div>
+        </div>
+
+        <div class="card">
+            <div class="dashboard-card-header">
+                <div class="dashboard-card-title">📍 Entregas por Zona</div>
+                <a href="#" class="dashboard-view-link">Relatório detalhado →</a>
+            </div>
+            <ul class="dashboard-zone-list">
+                <li class="dashboard-zone-item"><span class="dashboard-zone-name">📍 Centro</span><div class="dashboard-zone-stats"><span class="dashboard-zone-deliveries">45 entregas</span><span class="dashboard-zone-couriers">3 estafetas</span></div></li>
+                <li class="dashboard-zone-item"><span class="dashboard-zone-name">📍 Norte</span><div class="dashboard-zone-stats"><span class="dashboard-zone-deliveries">32 entregas</span><span class="dashboard-zone-couriers">2 estafetas</span></div></li>
+                <li class="dashboard-zone-item"><span class="dashboard-zone-name">📍 Sul</span><div class="dashboard-zone-stats"><span class="dashboard-zone-deliveries">28 entregas</span><span class="dashboard-zone-couriers">2 estafetas</span></div></li>
+                <li class="dashboard-zone-item"><span class="dashboard-zone-name">📍 Oeste</span><div class="dashboard-zone-stats"><span class="dashboard-zone-deliveries">19 entregas</span><span class="dashboard-zone-couriers">1 estafeta</span></div></li>
+                <li class="dashboard-zone-item"><span class="dashboard-zone-name">📍 Cascais</span><div class="dashboard-zone-stats"><span class="dashboard-zone-deliveries">22 entregas</span><span class="dashboard-zone-couriers">2 estafetas</span></div></li>
+                <li class="dashboard-zone-item"><span class="dashboard-zone-name">📍 Sintra</span><div class="dashboard-zone-stats"><span class="dashboard-zone-deliveries">18 entregas</span><span class="dashboard-zone-couriers">2 estafetas</span></div></li>
+            </ul>
+            <div class="dashboard-summary-box">📊 Zona com maior volume: <strong>Centro (45 entregas)</strong></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="dashboard-card-header">
+            <div class="dashboard-card-title">⚡ Ações Rápidas</div>
+        </div>
+        <div class="dashboard-quick-actions">
+            <a href="../clientes/lista-clientes.html" class="dashboard-quick-btn">👥 Novo Cliente</a>
+            <a href="../estafetas/lista-estafetas.html" class="dashboard-quick-btn">🛵 Novo Estafeta</a>
+            <a href="#" class="dashboard-quick-btn">📦 Nova Encomenda</a>
+            <a href="../indicadores/dashboard-indicadores.html" class="dashboard-quick-btn">📈 Ver Indicadores</a>
+        </div>
+    </div>
+
+    <div class="dashboard-footer-note">
+        🚀 Este é o dashboard operacional do Sprint 1. Os dashboards analíticos detalhados (indicadores, relatórios e exportação) serão desenvolvidos no Sprint 3.
+    </div>
+</main>
+
+</body>
+</html>
