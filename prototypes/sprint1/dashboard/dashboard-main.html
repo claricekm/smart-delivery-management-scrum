@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — SmartDelivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/style.css"/>
+    <style>
+        /* Estilos específicos para o dashboard */
+        .welcome-header {
+            margin-bottom: 24px;
+        }
+        .welcome-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .welcome-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            transition: all 0.2s;
+        }
+        .stat-card:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+        .stat-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .stat-change {
+            font-size: 12px;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .change-up { color: var(--success); }
+        .change-down { color: var(--error); }
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .chart-container {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+        .chart-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 16px;
+            justify-content: center;
+            padding: 20px 0;
+            min-height: 220px;
+        }
+        .bar-item {
+            text-align: center;
+            width: 55px;
+        }
+        .bar-fill {
+            background: var(--primary);
+            width: 100%;
+            border-radius: 6px 6px 0 0;
+            transition: height 0.3s;
+            min-height: 4px;
+        }
+        .bar-value {
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .bar-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+        .progress-item {
+            margin-bottom: 16px;
+        }
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+        .progress-bar-bg {
+            background: #e8eeee;
+            border-radius: 999px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 999px;
+            width: 0%;
+        }
+        .progress-fill.success { background: var(--success); }
+        .progress-fill.warning { background: var(--warning); }
+        .progress-fill.primary { background: var(--primary); }
+        .deliveries-list {
+            margin-top: 16px;
+        }
+        .delivery-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .delivery-item:last-child {
+            border-bottom: none;
+        }
+        .delivery-info {
+            flex: 1;
+        }
+        .delivery-id {
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .delivery-address {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .badge-pending { background: #fff3cd; color: #856404; }
+        .badge-delivering { background: #d1ecf1; color: #0c5460; }
+        .badge-success { background: #d4edda; color: #155724; }
+        .badge-cancelled { background: #f8d7da; color: #721c24; }
+        .view-all {
+            margin-top: 16px;
+            text-align: center;
+        }
+        .view-all a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .view-all a:hover {
+            text-decoration: underline;
+        }
+        .filter-select {
+            padding: 4px 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 12px;
+            background: white;
+            cursor: pointer;
+        }
+        .courier-load-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        .courier-load-card {
+            text-align: center;
+            padding: 12px;
+            background: var(--bg);
+            border-radius: var(--radius);
+        }
+        .courier-name {
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .courier-deliveries {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 8px 0;
+        }
+        .courier-label {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#01696f"/>
+            <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        SmartDelivery
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="dashboard-main.html" class="nav-item active">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Dashboard
+        </a>
+        <div class="nav-section">Gestão</div>
+        <a href="clientes/lista-clientes.html" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Clientes
+        </a>
+        <a href="estafetas/lista-estafetas.html" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            Estafetas
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+            Encomendas
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Entregas
+        </a>
+        <div class="nav-section">Recursos</div>
+        <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Veículos
+        </a>
+        <a href="indicadores/dashboard-indicadores.html" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Indicadores
+        </a>
+        <div class="nav-section">Comunicação</div>
+        <a href="comunicacao/preferencias-comunicacao.html" class="nav-item">
+            ✉️ Preferências
+        </a>
+        <a href="comunicacao/historico-notificacoes.html" class="nav-item">
+            📋 Histórico
+        </a>
+    </nav>
+</aside>
+
+<header class="topbar">
+    <div>
+        <div class="topbar-title">Dashboard Principal</div>
+        <div class="breadcrumb">Principal › <span>Visão Geral</span></div>
+    </div>
+    <div class="topbar-actions">
+        <div class="user-avatar">AR</div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="welcome-header">
+        <div class="welcome-title">Bem-vindo, Armelis 👋</div>
+        <div class="welcome-subtitle">Aqui está o resumo operacional do sistema de entregas</div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">📦</div>
+            <div class="stat-value" id="totalEntregas">156</div>
+            <div class="stat-label">Total de Entregas (este mês)</div>
+            <div class="stat-change"><span class="change-up">▲ +12%</span> vs mês anterior</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">⏳</div>
+            <div class="stat-value" id="pendentes">23</div>
+            <div class="stat-label">Encomendas Pendentes</div>
+            <div class="stat-change"><span class="change-down">▼ +3</span> vs ontem</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">🛵</div>
+            <div class="stat-value" id="estafetasDisponiveis">8</div>
+            <div class="stat-label">Estafetas Disponíveis</div>
+            <div class="stat-change">de 12 no total</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">✅</div>
+            <div class="stat-value" id="entregasHoje">18</div>
+            <div class="stat-label">Entregas Hoje</div>
+            <div class="stat-change"><span class="change-up">▲ +4</span> em relação a ontem</div>
+        </div>
+    </div>
+
+    <!-- Gráficos e indicadores - 2 colunas -->
+    <div class="two-columns">
+        <!-- Gráfico de entregas por dia (US20) -->
+        <div class="chart-container">
+            <div class="chart-title">
+                <span>📅 Entregas por período</span>
+                <select id="periodSelect" class="filter-select" onchange="updateChart()">
+                    <option value="7">Últimos 7 dias</option>
+                    <option value="30" selected>Últimos 30 dias</option>
+                </select>
+            </div>
+            <div id="barChart" class="bar-chart"></div>
+        </div>
+
+        <!-- Taxa de cumprimento de prazo (US21) -->
+        <div class="chart-container">
+            <div class="chart-title">✅ Taxa de cumprimento de prazo</div>
+            <div style="text-align: center; padding: 20px 0;">
+                <div style="font-size: 48px; font-weight: 700; color: var(--success);" id="taxaPrazo">92%</div>
+                <div style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">das entregas realizadas no prazo</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header"><span>Entregas no prazo</span><span id="prazoPercent">92%</span></div>
+                <div class="progress-bar-bg"><div class="progress-fill success" id="prazoFill" style="width:92%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header"><span>Entregas com atraso</span><span id="atrasoPercent">8%</span></div>
+                <div class="progress-bar-bg"><div class="progress-fill warning" id="atrasoFill" style="width:8%"></div></div>
+            </div>
+            <div style="margin-top: 16px; font-size: 12px; color: var(--text-muted); text-align: center;">
+                📊 Comparação: <span class="change-up">▲ +5%</span> em relação ao mês passado
+            </div>
+        </div>
+    </div>
+
+    <div class="two-columns">
+        <!-- Tempo médio de entrega por zona (US22) -->
+        <div class="chart-container">
+            <div class="chart-title">⏱️ Tempo médio de entrega por zona</div>
+            <table class="table" style="width:100%">
+                <thead>
+                    <tr><th>Zona</th><th>Tempo médio</th><th>Entregas</th></tr>
+                </thead>
+                <tbody id="tempoZonaTable">
+                    <tr><td>Centro</td><td>1.2 dias</td><td>45</td></tr>
+                    <tr><td>Norte</td><td>2.1 dias</td><td>32</td></tr>
+                    <tr><td>Sul</td><td>1.8 dias</td><td>28</td></tr>
+                    <tr><td>Oeste</td><td>2.5 dias</td><td>19</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Últimas entregas realizadas -->
+        <div class="chart-container">
+            <div class="chart-title">📋 Últimas entregas realizadas</div>
+            <div class="deliveries-list" id="recentDeliveries"></div>
+            <div class="view-all">
+                <a href="#">Ver todas as entregas →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Distribuição de carga de trabalho por estafeta -->
+    <div class="chart-container" style="margin-bottom: 20px;">
+        <div class="chart-title">🛵 Distribuição de carga por estafeta</div>
+        <div class="courier-load-grid" id="courierLoad"></div>
+    </div>
+</main>
+
+<script>
+    // Dados para o gráfico de entregas por período (US20)
+    const deliveriesData = {
+        7: [12, 15, 18, 14, 20, 22, 18],
+        30: [120, 135, 142, 128, 156, 148, 165, 152, 140, 135, 142, 150, 148, 155, 160, 158, 162, 170, 168, 175, 172, 180, 178, 185, 182, 190, 188, 192, 195, 200]
+    };
+    const daysOfWeek = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
+
+    function updateChart() {
+        const period = document.getElementById('periodSelect').value;
+        const data = deliveriesData[period];
+        const container = document.getElementById('barChart');
+        
+        if (period === '7') {
+            const maxValue = Math.max(...data);
+            container.innerHTML = data.map((value, index) => `
+                <div class="bar-item">
+                    <div class="bar-value">${value}</div>
+                    <div class="bar-fill" style="height: ${(value / maxValue) * 120}px;"></div>
+                    <div class="bar-label">${daysOfWeek[index]}</div>
+                </div>
+            `).join('');
+        } else {
+            const weeks = [
+                data.slice(0,7).reduce((a,b)=>a+b,0),
+                data.slice(7,14).reduce((a,b)=>a+b,0),
+                data.slice(14,21).reduce((a,b)=>a+b,0),
+                data.slice(21,28).reduce((a,b)=>a+b,0)
+            ];
+            const maxWeek = Math.max(...weeks);
+            container.innerHTML = weeks.map((value, index) => `
+                <div class="bar-item">
+                    <div class="bar-value">${value}</div>
+                    <div class="bar-fill" style="height: ${(value / maxWeek) * 120}px;"></div>
+                    <div class="bar-label">Semana ${index+1}</div>
+                </div>
+            `).join('');
+        }
+    }
+
+    // Dados de entregas recentes
+    const recentDeliveries = [
+        { id: 'EN-2451', address: 'Rua Augusta, 123 - Centro', status: 'Entregue', time: '10:30', statusClass: 'badge-success' },
+        { id: 'EN-2450', address: 'Av. Liberdade, 45 - Norte', status: 'Entregue', time: '09:45', statusClass: 'badge-success' },
+        { id: 'EN-2449', address: 'Praça da República, 78 - Sul', status: 'Em distribuição', time: '08:30', statusClass: 'badge-delivering' },
+        { id: 'EN-2448', address: 'Rua dos Aliados, 22 - Centro', status: 'Pendente', time: '--', statusClass: 'badge-pending' },
+        { id: 'EN-2447', address: 'Av. Combatentes, 99 - Norte', status: 'Entregue', time: '16:20', statusClass: 'badge-success' }
+    ];
+
+    function loadRecentDeliveries() {
+        const container = document.getElementById('recentDeliveries');
+        container.innerHTML = recentDeliveries.map(d => `
+            <div class="delivery-item">
+                <div class="delivery-info">
+                    <div class="delivery-id">${d.id}</div>
+                    <div class="delivery-address">${d.address}</div>
+                </div>
+                <div>
+                    <span class="badge ${d.statusClass}">${d.status}</span>
+                    ${d.time !== '--' ? `<span style="font-size:11px; margin-left:8px; color:var(--text-muted)">${d.time}</span>` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Dados de carga por estafeta
+    const couriersLoad = [
+        { name: 'Carlos M.', deliveries: 12, maxDeliveries: 16 },
+        { name: 'Ana R.', deliveries: 10, maxDeliveries: 16 },
+        { name: 'João P.', deliveries: 8, maxDeliveries: 16 },
+        { name: 'Maria S.', deliveries: 6, maxDeliveries: 16 }
+    ];
+
+    function loadCourierLoad() {
+        const container = document.getElementById('courierLoad');
+        container.innerHTML = couriersLoad.map(c => {
+            const percent = (c.deliveries / c.maxDeliveries) * 100;
+            return `
+                <div class="courier-load-card">
+                    <div class="courier-name">${c.name}</div>
+                    <div class="courier-deliveries">${c.deliveries}</div>
+                    <div class="courier-label">entregas hoje</div>
+                    <div class="progress-bar-bg" style="margin-top:8px">
+                        <div class="progress-fill primary" style="width:${percent}%"></div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Inicialização
+    document.addEventListener('DOMContentLoaded', () => {
+        updateChart();
+        loadRecentDeliveries();
+        loadCourierLoad();
+    });
+</script>
+</body>
+</html>
