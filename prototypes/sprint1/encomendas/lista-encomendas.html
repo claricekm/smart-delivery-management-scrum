@@ -20,7 +20,7 @@
   </div>
   <nav class="sidebar-nav">
     <div class="nav-section">Principal</div>
-    <a href="../dashboard/dashboard-main.html" class="nav-item">
+    <a href="../dashboard/dashboard.html" class="nav-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
       Dashboard
     </a>
@@ -37,6 +37,22 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
       Encomendas
     </a>
+    <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Entregas
+    </a>
+        <div class="nav-section">Recursos</div>
+    <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Veículos
+    </a>
+    <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Indicadores
+    </a>
+            <div class="nav-section">Comunicação</div>
+        <a href="../comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+        <a href="../comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
   </nav>
 </aside>
 
@@ -174,7 +190,7 @@
         <td><span class="badge ${badgeClass}">${enc.estado}</span></td>
         <td>${enc.data}</td>
         <td class="table-actions">
-          <a href="detalhe-encomendas" class="btn btn-secondary btn-sm">Ver</a>
+          <a href="detalhe-encomendas.html?id=${enc.id}" class="btn btn-secondary btn-sm">Ver</a>
         </td>
       `;
       corpo.appendChild(tr);
