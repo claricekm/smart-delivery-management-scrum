@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Clientes — SmartDelivery</title>
+  <title>Clientes - SmartDelivery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../assets/css/style.css"/>
@@ -59,7 +59,7 @@
     <div class="breadcrumb">Gestão › <span>Clientes</span></div>
   </div>
   <div class="topbar-actions">
-    <a href="registo-cliente.html" class="btn btn-primary btn-sm">
+    <a href="registo-cliente.Html" class="btn btn-primary btn-sm">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       Novo Cliente
     </a>
@@ -71,44 +71,37 @@
   <div class="page-header">
     <div>
       <div class="page-title">Clientes</div>
-      <div class="page-subtitle">Consulte e filtre os clientes por tipo.</div>
+      <div class="page-subtitle">Consulte e filtre os clientes por tipo, email ou NIF.</div>
     </div>
   </div>
 
-  <!-- STATS -->
   <div class="stats-row">
     <div class="stat-card">
-      <div class="stat-value" style="color:var(--text)">24</div>
+      <div class="stat-value" style="color:var(--text)" data-total-clientes>0</div>
       <div class="stat-label">Total de clientes</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value" style="color:var(--primary)">18</div>
+      <div class="stat-value" style="color:var(--primary)" data-total-particulares>0</div>
       <div class="stat-label">Particulares</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value" style="color:var(--warning)">6</div>
+      <div class="stat-value" style="color:var(--warning)" data-total-empresas>0</div>
       <div class="stat-label">Empresas</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value" style="color:var(--success)">3</div>
-      <div class="stat-label">Novos este mês</div>
     </div>
   </div>
 
-  <!-- FILTROS -->
   <div class="search-bar">
     <div class="search-input-wrap">
       <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" class="search-input" placeholder="Pesquisar por nome..."/>
+      <input type="text" class="search-input" placeholder="Pesquisar por nome, email ou NIF..." data-clientes-search/>
     </div>
-    <select class="filter-select">
-      <option>Todos os tipos</option>
-      <option>Particular</option>
-      <option>Empresa</option>
+    <select class="filter-select" data-clientes-filter>
+      <option value="">Todos os tipos</option>
+      <option value="Particular">Particular</option>
+      <option value="Empresa">Empresa</option>
     </select>
   </div>
 
-  <!-- TABELA -->
   <div class="card" style="padding:0;margin-bottom:16px;">
     <table class="table">
       <thead>
@@ -119,53 +112,15 @@
           <th>Ações</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>
-            <div class="courier-info">
-              <div class="avatar">JS</div>
-              <div><div class="courier-name">João Silva</div><div class="courier-meta">joao@exemplo.com</div></div>
-            </div>
-          </td>
-          <td>912 345 678</td>
-          <td><span class="tag">👤 Particular</span></td>
-          <td>
-            <div class="table-actions">
-              <a href="detalhe-cliente.html" class="btn btn-secondary btn-sm">Ver</a>
-              <a href="registo-cliente.html" class="btn btn-secondary btn-sm">Editar</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="courier-info">
-              <div class="avatar">XP</div>
-              <div><div class="courier-name">Empresa XPTO</div><div class="courier-meta">contacto@xpto.com</div></div>
-            </div>
-          </td>
-          <td>213 456 789</td>
-          <td><span class="tag">🏢 Empresa</span></td>
-          <td>
-            <div class="table-actions">
-              <a href="detalhe-cliente.html" class="btn btn-secondary btn-sm">Ver</a>
-              <a href="registo-cliente.html" class="btn btn-secondary btn-sm">Editar</a>
-            </div>
-          </td>
-        </tr>
-      </tbody>
+      <tbody data-clientes-lista></tbody>
     </table>
   </div>
 
   <div style="display:flex;justify-content:space-between;align-items:center;">
-    <div style="font-size:13px;color:var(--text-muted)">A mostrar 2 de 24 clientes</div>
-    <div style="display:flex;gap:6px;">
-      <button class="btn btn-secondary btn-sm">← Anterior</button>
-      <button class="btn btn-primary btn-sm">1</button>
-      <button class="btn btn-secondary btn-sm">2</button>
-      <button class="btn btn-secondary btn-sm">3</button>
-      <button class="btn btn-secondary btn-sm">Próximo →</button>
-    </div>
+    <div style="font-size:13px;color:var(--text-muted)" data-clientes-resumo>A mostrar 0 de 0 clientes</div>
   </div>
 </main>
+
+<script src="./clientes.js"></script>
 </body>
 </html>

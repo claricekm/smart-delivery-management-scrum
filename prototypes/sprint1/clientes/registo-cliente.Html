@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Registar Cliente — SmartDelivery</title>
+  <title>Registar Cliente - SmartDelivery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../assets/css/style.css"/>
@@ -59,7 +59,7 @@
     <div class="breadcrumb">Clientes › <span>Novo Registo</span></div>
   </div>
   <div class="topbar-actions">
-    <a href="lista-clientes.html" class="btn btn-secondary btn-sm">← Voltar à lista</a>
+    <a href="lista-clientes.Html" class="btn btn-secondary btn-sm">← Voltar à lista</a>
     <div class="user-avatar">MO</div>
   </div>
 </header>
@@ -68,66 +68,81 @@
   <div class="page-header">
     <div>
       <div class="page-title">Novo Cliente</div>
-      <div class="page-subtitle">Preencha todos os campos obrigatórios para registar um novo cliente no sistema.</div>
+      <div class="page-subtitle">Preencha os campos obrigatórios. Clientes empresariais precisam de NIF e nome da empresa.</div>
     </div>
   </div>
 
-  <!-- Alerta de erro de validação -->
-  <div class="alert alert-error" style="display:none">
+  <div class="alert alert-error" style="display:none" data-form-error>
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-    <div><strong>Não foi possível guardar o cliente.</strong> Existem campos obrigatórios por preencher. Por favor corrija os erros assinalados abaixo.</div>
+    <div><strong>Não foi possível guardar o cliente.</strong> Verifique os campos obrigatórios.</div>
   </div>
 
-  <form>
-  <div class="card">
-    <div class="form-section-title">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      Dados Pessoais
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">Nome completo <span class="required">*</span></label>
-        <input type="text" class="form-input" placeholder="Ex: João Silva"/>
+  <form data-cliente-form>
+    <div class="card">
+      <div class="form-section-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Dados do Cliente
       </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nome completo <span class="required">*</span></label>
+          <input type="text" class="form-input" name="nome" placeholder="Ex: João Silva"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email <span class="required">*</span></label>
+          <input type="email" class="form-input" name="email" placeholder="Ex: joao@exemplo.com"/>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Contacto <span class="required">*</span></label>
+          <input type="text" class="form-input" name="contacto" placeholder="Ex: 912 345 678"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tipo de Cliente <span class="required">*</span></label>
+          <select class="form-select" name="tipo">
+            <option value="">Selecionar...</option>
+            <option value="Particular">Particular</option>
+            <option value="Empresa">Empresa</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">NIF <span class="required">*</span></label>
+          <input type="text" class="form-input" name="nif" placeholder="Ex: 123456789"/>
+        </div>
+        <div class="form-group" data-empresa-group style="display:none">
+          <label class="form-label">Nome da Empresa <span class="required">*</span></label>
+          <input type="text" class="form-input" name="nomeEmpresa" placeholder="Ex: Empresa XPTO"/>
+        </div>
+      </div>
+
       <div class="form-group">
-        <label class="form-label">Email <span class="required">*</span></label>
-        <input type="email" class="form-input" placeholder="Ex: joao@exemplo.com"/>
+        <label class="form-label">Morada</label>
+        <input type="text" class="form-input" name="morada" placeholder="Ex: Rua das Flores, 12, Lisboa"/>
+        <div class="form-hint">Campo opcional.</div>
+      </div>
+
+      <div class="form-actions">
+        <a href="lista-clientes.Html" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Guardar Cliente
+        </button>
       </div>
     </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">Contacto <span class="required">*</span></label>
-        <input type="text" class="form-input" placeholder="Ex: 912 345 678"/>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Tipo de Cliente <span class="required">*</span></label>
-        <select class="form-select">
-          <option value="">Selecionar...</option>
-          <option>Particular</option>
-          <option>Empresa</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Morada</label>
-      <input type="text" class="form-input" placeholder="Ex: Rua das Flores, 12, Lisboa"/>
-      <div class="form-hint">Campo opcional.</div>
-    </div>
-    <div class="form-actions">
-      <a href="lista-clientes.html" class="btn btn-secondary">Cancelar</a>
-      <button type="submit" class="btn btn-primary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        Guardar Cliente
-      </button>
-    </div>
-  </div>
   </form>
 
-  <!-- Mensagem de sucesso -->
   <div class="alert alert-success" style="display:none" id="successMsg">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
-    <div>Cliente registado com sucesso! Foi adicionado à <a href="lista-clientes.html" class="btn-link">lista de clientes</a>.</div>
+    <div>Cliente registado com sucesso! Foi adicionado à <a href="lista-clientes.Html" class="btn-link">lista de clientes</a>.</div>
   </div>
 </main>
+
+<script src="./clientes.js"></script>
 </body>
 </html>
