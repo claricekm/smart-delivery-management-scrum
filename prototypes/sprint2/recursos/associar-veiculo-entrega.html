@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDelivery - Associar Veículo a Entrega</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#01696f"/>
+            <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        SmartDelivery
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">📊 Dashboard</a>
+        <div class="nav-section">Gestão</div>
+        <a href="../../sprint1/clientes/lista-clientes.html" class="nav-item">👥 Clientes</a>
+        <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">🛵 Estafetas</a>
+        <a href="#" class="nav-item">📦 Encomendas</a>
+        <div class="nav-section">Recursos</div>
+        <a href="lista-veiculos.html" class="nav-item">🚗 Veículos</a>
+        <a href="alerta-manutencao.html" class="nav-item">🔧 Manutenção</a>
+        <a href="associar-veiculo-entrega.html" class="nav-item active">🔗 Associar</a>
+        <div class="nav-section">Análise</div>
+        <a href="../../sprint1/indicadores/dashboard-indicadores.html" class="nav-item">📈 Indicadores</a>
+        <div class="nav-section">Comunicação</div>
+        <a href="../../sprint1/comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+        <a href="../../sprint1/comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+    </nav>
+</aside>
+
+<header class="topbar">
+    <div>
+        <div class="topbar-title">Associar Veículo</div>
+        <div class="breadcrumb">Recursos › <span>Atribuição a Entrega</span></div>
+    </div>
+    <div class="topbar-actions">
+        <div class="user-avatar">AR</div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="page-header">
+        <div>
+            <div class="page-title">Associar Veículo a Entrega/Estafeta</div>
+            <div class="page-subtitle">Selecione a entrega, estafeta e o veículo disponível.</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="form-group">
+            <label class="form-label">Entrega</label>
+            <select id="entregaSelect" class="form-select">
+                <option value="">Selecione uma entrega...</option>
+                <option value="EN-001">EN-001 - João Silva - Prioridade Alta</option>
+                <option value="EN-002">EN-002 - Maria Santos - Centro</option>
+                <option value="EN-003">EN-003 - TecnoLógica Lda - Empresa</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Estafeta</label>
+            <select id="estafetaSelect" class="form-select">
+                <option value="">Selecione um estafeta...</option>
+                <option value="E001">Carlos Mendes (Disponível)</option>
+                <option value="E002">Ana Rodrigues (Em Rota)</option>
+                <option value="E003">João Pereira (Disponível)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Veículo</label>
+            <select id="veiculoSelect" class="form-select">
+                <option value="">Selecione um veículo...</option>
+                <option value="1">AB-12-CD - Carrinha (1200 kg) - Disponível</option>
+                <option value="4">78-GH-90 - Carrinha (1000 kg) - Disponível</option>
+            </select>
+            <div class="form-hint">Apenas veículos com estado "Disponível" são mostrados.</div>
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-secondary" onclick="limparForm()">Cancelar</button>
+            <button class="btn btn-primary" onclick="associar()">Confirmar Associação</button>
+        </div>
+        <div id="resultadoMsg" style="margin-top:20px;"></div>
+    </div>
+</main>
+
+<script>
+    function associar() {
+        const entrega = document.getElementById('entregaSelect').value;
+        const estafeta = document.getElementById('estafetaSelect').value;
+        const veiculo = document.getElementById('veiculoSelect').value;
+        if (!entrega || !estafeta || !veiculo) {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+        const dataHora = new Date().toLocaleString('pt-PT');
+        const msgDiv = document.getElementById('resultadoMsg');
+        msgDiv.innerHTML = `<div class="alert alert-success">✅ Associação registada com sucesso!<br>📦 Entrega: ${entrega}<br>👤 Estafeta: ${estafeta}<br>🚚 Veículo: ${veiculo}<br>📅 Data/Hora: ${dataHora}</div>`;
+        limparForm();
+        setTimeout(() => msgDiv.innerHTML = '', 5000);
+    }
+    function limparForm() {
+        document.getElementById('entregaSelect').value = '';
+        document.getElementById('estafetaSelect').value = '';
+        document.getElementById('veiculoSelect').value = '';
+    }
+</script>
+</body>
+</html>

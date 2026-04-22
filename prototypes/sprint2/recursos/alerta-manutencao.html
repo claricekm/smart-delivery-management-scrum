@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDelivery - Alertas de Manutenção</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#01696f"/>
+            <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        SmartDelivery
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">📊 Dashboard</a>
+        <div class="nav-section">Gestão</div>
+        <a href="../../sprint1/clientes/lista-clientes.html" class="nav-item">👥 Clientes</a>
+        <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">🛵 Estafetas</a>
+        <a href="#" class="nav-item">📦 Encomendas</a>
+        <div class="nav-section">Recursos</div>
+        <a href="lista-veiculos.html" class="nav-item">🚗 Veículos</a>
+        <a href="alerta-manutencao.html" class="nav-item active">🔧 Manutenção</a>
+        <a href="associar-veiculo-entrega.html" class="nav-item">🔗 Associar</a>
+        <div class="nav-section">Análise</div>
+        <a href="../../sprint1/indicadores/dashboard-indicadores.html" class="nav-item">📈 Indicadores</a>
+        <div class="nav-section">Comunicação</div>
+        <a href="../../sprint1/comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+        <a href="../../sprint1/comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+    </nav>
+</aside>
+
+<header class="topbar">
+    <div>
+        <div class="topbar-title">Alertas de Manutenção</div>
+        <div class="breadcrumb">Recursos › <span>Manutenção Preventiva</span></div>
+    </div>
+    <div class="topbar-actions">
+        <button class="btn btn-primary btn-sm" onclick="registrarManutencao()">+ Registar Manutenção</button>
+        <div class="user-avatar">AR</div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="page-header">
+        <div>
+            <div class="page-title">Alertas de Manutenção Preventiva</div>
+            <div class="page-subtitle">Veículos que necessitam de manutenção nos próximos dias.</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="dashboard-card-header">
+            <div class="dashboard-card-title">⚠️ Notificações Ativas</div>
+            <div class="filter-select" style="width:auto;">
+                <button class="btn btn-secondary btn-sm" onclick="configurarLimiares()">⚙️ Configurar Limiares</button>
+            </div>
+        </div>
+        <div id="alertasContainer"></div>
+    </div>
+</main>
+
+<script>
+    let veiculosManutencao = [
+        { id:1, matricula:'AB-12-CD', tipo:'Carrinha', kmAtual:4750, kmIntervalo:5000, diasAteManutencao:20 },
+        { id:2, matricula:'XY-98-ZW', tipo:'Motorizada', kmAtual:4850, kmIntervalo:5000, diasAteManutencao:5 },
+        { id:3, matricula:'34-EF-56', tipo:'Bicicleta', kmAtual:920, kmIntervalo:1000, diasAteManutencao:45 },
+        { id:4, matricula:'78-GH-90', tipo:'Carrinha', kmAtual:9200, kmIntervalo:10000, diasAteManutencao:10 }
+    ];
+    let kmThreshold = 90;
+    let diasThreshold = 15;
+    function verificarAlertas() {
+        const container = document.getElementById('alertasContainer');
+        let alertas = [];
+        veiculosManutencao.forEach(v => {
+            const percentKm = (v.kmAtual / v.kmIntervalo) * 100;
+            if (percentKm >= kmThreshold) {
+                alertas.push({ veiculo: v, msg: `Atingiu ${percentKm.toFixed(0)}% do intervalo de manutenção (${v.kmAtual}/${v.kmIntervalo} km)`, urgente: percentKm >= 95 });
+            }
+            if (v.diasAteManutencao <= diasThreshold && v.diasAteManutencao > 0) {
+                alertas.push({ veiculo: v, msg: `Faltam ${v.diasAteManutencao} dias para a data de manutenção`, urgente: v.diasAteManutencao <= 5 });
+            }
+        });
+        if (alertas.length === 0) {
+            container.innerHTML = '<div class="alert alert-success">Nenhum alerta de manutenção ativo. Todos os veículos estão em conformidade.</div>';
+            return;
+        }
+        container.innerHTML = alertas.map(a => `
+            <div class="alert-card ${a.urgente ? 'urgent' : ''}">
+                <div class="vehicle-name">🚛 ${a.veiculo.matricula} (${a.veiculo.tipo})</div>
+                <div class="alert-message">${a.msg}</div>
+                <div class="alert-date">Última manutenção: ${a.veiculo.kmAtual} km</div>
+            </div>
+        `).join('');
+    }
+    function registrarManutencao() {
+        const matricula = prompt("Digite a matrícula do veículo que realizou manutenção:");
+        const veiculo = veiculosManutencao.find(v => v.matricula === matricula?.toUpperCase());
+        if (!veiculo) { alert("Veículo não encontrado."); return; }
+        const novoKm = parseInt(prompt("Qual a quilometragem atual? (km)", veiculo.kmAtual));
+        if (!isNaN(novoKm)) {
+            veiculo.kmAtual = novoKm;
+            alert(`Manutenção registada para ${veiculo.matricula}.`);
+        }
+        verificarAlertas();
+    }
+    function configurarLimiares() {
+        let newKm = prompt("Limiar de km (%):", kmThreshold);
+        if (newKm !== null) kmThreshold = parseInt(newKm) || kmThreshold;
+        let newDias = prompt("Limiar de dias de antecedência:", diasThreshold);
+        if (newDias !== null) diasThreshold = parseInt(newDias) || diasThreshold;
+        verificarAlertas();
+    }
+    verificarAlertas();
+</script>
+</body>
+</html>
