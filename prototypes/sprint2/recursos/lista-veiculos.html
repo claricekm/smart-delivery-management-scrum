@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDelivery - Gestão de Veículos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#01696f"/>
+            <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        SmartDelivery
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">📊 Dashboard</a>
+        <div class="nav-section">Gestão</div>
+        <a href="../../sprint1/clientes/lista-clientes.html" class="nav-item">👥 Clientes</a>
+        <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">🛵 Estafetas</a>
+        <a href="#" class="nav-item">📦 Encomendas</a>
+        <div class="nav-section">Recursos</div>
+        <a href="lista-veiculos.html" class="nav-item active">🚗 Veículos</a>
+        <a href="alerta-manutencao.html" class="nav-item">🔧 Manutenção</a>
+        <a href="associar-veiculo-entrega.html" class="nav-item">🔗 Associar</a>
+        <div class="nav-section">Análise</div>
+        <a href="../../sprint1/indicadores/dashboard-indicadores.html" class="nav-item">📈 Indicadores</a>
+        <div class="nav-section">Comunicação</div>
+        <a href="../../sprint1/comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+        <a href="../../sprint1/comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+    </nav>
+</aside>
+
+<header class="topbar">
+    <div>
+        <div class="topbar-title">Frota de Veículos</div>
+        <div class="breadcrumb">Recursos › <span>Veículos</span></div>
+    </div>
+    <div class="topbar-actions">
+        <a href="registo-veiculo.html" class="btn btn-primary btn-sm">+ Novo Veículo</a>
+        <div class="user-avatar">AR</div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="page-header">
+        <div>
+            <div class="page-title">Gestão da Frota</div>
+            <div class="page-subtitle">Consulte e altere a disponibilidade dos veículos.</div>
+        </div>
+    </div>
+
+    <div class="card" style="padding:0;">
+        <table class="table">
+            <thead><tr><th>Matrícula</th><th>Tipo</th><th>Modelo</th><th>Capacidade (kg)</th><th>Estado</th><th>Última Alteração</th></tr></thead>
+            <tbody id="tabelaVeiculos"></tbody>
+        </table>
+    </div>
+    <div id="messageArea" style="margin-top:16px;"></div>
+</main>
+
+<script>
+    let veiculos = [
+        { id:1, matricula:'AB-12-CD', tipo:'Carrinha', modelo:'Mercedes Sprinter', capacidade:1200, estado:'disponivel', ultimaAlteracao:'2026-04-18 09:00' },
+        { id:2, matricula:'XY-98-ZW', tipo:'Motorizada', modelo:'Honda PCX', capacidade:50, estado:'rota', ultimaAlteracao:'2026-04-18 08:30' },
+        { id:3, matricula:'34-EF-56', tipo:'Bicicleta', modelo:'Trek Cargo', capacidade:30, estado:'manutencao', ultimaAlteracao:'2026-04-17 14:00' },
+        { id:4, matricula:'78-GH-90', tipo:'Carrinha', modelo:'Ford Transit', capacidade:1000, estado:'disponivel', ultimaAlteracao:'2026-04-18 10:00' }
+    ];
+    const estadoLabels = { disponivel:'✅ Disponível', manutencao:'🔧 Manutenção', rota:'🚚 Em Rota' };
+    const estadoClass = { disponivel:'status-disponivel', manutencao:'status-manutencao', rota:'status-rota' };
+    function renderizarTabela() {
+        const tbody = document.getElementById('tabelaVeiculos');
+        tbody.innerHTML = veiculos.map(v => `
+            <tr>
+                <td><strong>${v.matricula}</strong></td>
+                <td>${v.tipo}</td>
+                <td>${v.modelo}</td>
+                <td>${v.capacidade} kg</td>
+                <td><select class="status-select ${estadoClass[v.estado]}" data-id="${v.id}" onchange="alterarEstado(${v.id}, this.value)">
+                        <option value="disponivel" ${v.estado==='disponivel' ? 'selected' : ''}>✅ Disponível</option>
+                        <option value="manutencao" ${v.estado==='manutencao' ? 'selected' : ''}>🔧 Manutenção</option>
+                        <option value="rota" ${v.estado==='rota' ? 'selected' : ''}>🚚 Em Rota</option>
+                    </select>
+                </td>
+                <td>${v.ultimaAlteracao}</td>
+            </tr>
+        `).join('');
+    }
+    function alterarEstado(id, novoEstado) {
+        const veiculo = veiculos.find(v => v.id === id);
+        if (!veiculo) return;
+        veiculo.estado = novoEstado;
+        veiculo.ultimaAlteracao = new Date().toLocaleString('pt-PT').slice(0,16);
+        renderizarTabela();
+        const msgDiv = document.getElementById('messageArea');
+        msgDiv.innerHTML = `<div class="alert alert-info">Estado do veículo ${veiculo.matricula} alterado para "${estadoLabels[novoEstado]}" às ${veiculo.ultimaAlteracao}.</div>`;
+        setTimeout(() => msgDiv.innerHTML = '', 4000);
+    }
+    renderizarTabela();
+</script>
+</body>
+</html>

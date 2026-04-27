@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDelivery - Registar Veículo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#01696f"/>
+            <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        SmartDelivery
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">📊 Dashboard</a>
+        <div class="nav-section">Gestão</div>
+        <a href="../../sprint1/clientes/lista-clientes.html" class="nav-item">👥 Clientes</a>
+        <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">🛵 Estafetas</a>
+        <a href="#" class="nav-item">📦 Encomendas</a>
+        <div class="nav-section">Recursos</div>
+        <a href="lista-veiculos.html" class="nav-item active">🚗 Veículos</a>
+        <a href="alerta-manutencao.html" class="nav-item">🔧 Manutenção</a>
+        <a href="associar-veiculo-entrega.html" class="nav-item">🔗 Associar</a>
+        <div class="nav-section">Análise</div>
+        <a href="../../sprint1/indicadores/dashboard-indicadores.html" class="nav-item">📈 Indicadores</a>
+        <div class="nav-section">Comunicação</div>
+        <a href="../../sprint1/comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+        <a href="../../sprint1/comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+    </nav>
+</aside>
+
+<header class="topbar">
+    <div>
+        <div class="topbar-title">Registar Veículo</div>
+        <div class="breadcrumb">Recursos › <span>Novo Veículo</span></div>
+    </div>
+    <div class="topbar-actions">
+        <a href="lista-veiculos.html" class="btn btn-secondary btn-sm">← Voltar</a>
+        <div class="user-avatar">AR</div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="page-header">
+        <div>
+            <div class="page-title">Registar Novo Veículo</div>
+            <div class="page-subtitle">Preencha os campos obrigatórios para adicionar um veículo à frota.</div>
+        </div>
+    </div>
+
+    <div class="alert alert-error" id="errorMsg" style="display:none;"></div>
+    <div class="alert alert-success" id="successMsg" style="display:none;"></div>
+
+    <div class="card">
+        <form id="formVeiculo">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Matrícula <span class="required">*</span></label>
+                    <input type="text" id="matricula" class="form-input" placeholder="Ex: AA-00-BB">
+                    <div class="form-hint">Formato: XX-00-XX (única)</div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tipo de Veículo <span class="required">*</span></label>
+                    <select id="tipo" class="form-select">
+                        <option value="">Selecione...</option>
+                        <option>Motorizada</option>
+                        <option>Carrinha</option>
+                        <option>Bicicleta</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Modelo <span class="required">*</span></label>
+                    <input type="text" id="modelo" class="form-input" placeholder="Ex: Honda PCX, Mercedes Sprinter">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Capacidade de Carga (kg) <span class="required">*</span></label>
+                    <input type="number" id="capacidade" class="form-input" placeholder="Ex: 500" min="0" step="1">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Ano de Fabrico</label>
+                <input type="number" id="ano" class="form-input" placeholder="Ex: 2020" min="1990" max="2026">
+            </div>
+            <div class="form-actions">
+                <a href="lista-veiculos.html" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Registar Veículo</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script>
+    const registeredMatriculas = ['AB-12-CD', 'XY-98-ZW'];
+    document.getElementById('formVeiculo').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const matricula = document.getElementById('matricula').value.trim().toUpperCase();
+        const tipo = document.getElementById('tipo').value;
+        const modelo = document.getElementById('modelo').value.trim();
+        const capacidade = document.getElementById('capacidade').value;
+        if (!matricula || !tipo || !modelo || !capacidade) {
+            showMessage('Todos os campos obrigatórios devem ser preenchidos.', 'error');
+            return;
+        }
+        if (registeredMatriculas.includes(matricula)) {
+            showMessage('Matrícula já registada no sistema.', 'error');
+            return;
+        }
+        if (capacidade <= 0) {
+            showMessage('Capacidade de carga deve ser um valor positivo.', 'error');
+            return;
+        }
+        registeredMatriculas.push(matricula);
+        showMessage(`Veículo ${matricula} registado com sucesso!`, 'success');
+        document.getElementById('formVeiculo').reset();
+    });
+    function showMessage(msg, type) {
+        const errorDiv = document.getElementById('errorMsg');
+        const successDiv = document.getElementById('successMsg');
+        if (type === 'error') {
+            errorDiv.innerHTML = msg;
+            errorDiv.style.display = 'flex';
+            successDiv.style.display = 'none';
+            setTimeout(() => errorDiv.style.display = 'none', 4000);
+        } else {
+            successDiv.innerHTML = msg;
+            successDiv.style.display = 'flex';
+            errorDiv.style.display = 'none';
+            setTimeout(() => successDiv.style.display = 'none', 4000);
+        }
+    }
+</script>
+</body>
+</html>
