@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atribuicao de Encomenda - SmartDelivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body data-page="atribuicao">
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="7" fill="#01696f"/>
+      <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    SmartDelivery
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">Principal</div>
+    <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <div class="nav-section">Gestao</div>
+    <a href="../../sprint1/clientes/lista-clientes.Html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Clientes
+    </a>
+    <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+      Estafetas
+    </a>
+    <a href="../../sprint1/encomendas/lista-encomendas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+      Encomendas
+    </a>
+    <a href="./atribuicao-encomenda-estafeta.html" class="nav-item active">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Entregas
+    </a>
+  </nav>
+</aside>
+
+<header class="topbar">
+  <div>
+    <div class="topbar-title">Atribuicao de Encomenda a Estafeta</div>
+    <div class="breadcrumb">Entregas &rsaquo; <span>Atribuicao</span></div>
+  </div>
+  <div class="topbar-actions">
+    <a href="./planeamento-zona-rota.html" class="btn btn-secondary btn-sm">Ver planeamento</a>
+    <a href="./detalhe-entrega-timeline.html" class="btn btn-primary btn-sm">Abrir detalhe</a>
+    <div class="user-avatar">MO</div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value">12</div>
+      <div class="stat-label">Encomendas por atribuir</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">7</div>
+      <div class="stat-label">Estafetas disponiveis</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">3</div>
+      <div class="stat-label">Rotas a fechar</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">18 min</div>
+      <div class="stat-label">Media ate atribuicao</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start;">
+    <section class="card" style="margin-bottom:0;">
+      <div class="card-header">
+        <div class="card-title">Encomenda em fila</div>
+        <span class="badge badge-warning">Prioridade alta</span>
+      </div>
+      <div class="detail-grid">
+        <div><div class="detail-label">Codigo</div><div class="detail-value">ENC-3204</div></div>
+        <div><div class="detail-label">Janela horaria</div><div class="detail-value">Hoje, 15:00 - 17:00</div></div>
+        <div><div class="detail-label">Cliente</div><div class="detail-value">Farmacia Central</div></div>
+        <div><div class="detail-label">Zona</div><div class="detail-value" id="atribuicao-zona">Lisboa Centro</div></div>
+        <div style="grid-column:span 2;"><div class="detail-label">Entrega</div><div class="detail-value">Rua da Prata, 88, Lisboa</div></div>
+        <div style="grid-column:span 2;"><div class="detail-label">Observacoes</div><div class="detail-value">Mercadoria fragil e recolha concluida no hub.</div></div>
+      </div>
+
+      <div class="section-label" style="margin-top:22px;">Filtrar estafetas</div>
+      <div class="search-bar" style="margin-bottom:0;">
+        <select id="filtro-zona" class="filter-select">
+          <option value="Lisboa Centro">Lisboa Centro</option>
+          <option value="Lisboa Norte">Lisboa Norte</option>
+          <option value="Margem Sul">Margem Sul</option>
+        </select>
+        <select id="filtro-veiculo" class="filter-select">
+          <option value="Todos">Todos os veiculos</option>
+          <option value="Moto">Moto</option>
+          <option value="Bicicleta">Bicicleta</option>
+          <option value="Carrinha">Carrinha</option>
+        </select>
+        <button id="sugerir-atribuicao" class="btn btn-secondary btn-sm">Sugerir melhor opcao</button>
+      </div>
+    </section>
+
+    <aside class="card" style="margin-bottom:0;">
+      <div class="card-header">
+        <div class="card-title">Resumo da atribuicao</div>
+        <span id="resumo-badge" class="badge badge-muted">Sem selecao</span>
+      </div>
+      <div class="detail-grid">
+        <div><div class="detail-label">Estafeta</div><div id="resumo-estafeta" class="detail-value">Por definir</div></div>
+        <div><div class="detail-label">Carga atual</div><div id="resumo-carga" class="detail-value">-</div></div>
+        <div><div class="detail-label">ETA recolha</div><div id="resumo-eta" class="detail-value">-</div></div>
+        <div><div class="detail-label">Veiculo</div><div id="resumo-veiculo" class="detail-value">-</div></div>
+      </div>
+      <div style="margin-top:20px;padding:14px;border-radius:8px;background:#f7f6f2;font-size:13px;color:var(--text-muted);">
+        A sugestao privilegia disponibilidade, proximidade da zona e capacidade restante na rota atual.
+      </div>
+      <div class="form-actions" style="border-top:none;padding-top:18px;">
+        <button id="limpar-selecao" class="btn btn-secondary btn-sm">Limpar</button>
+        <button id="confirmar-atribuicao" class="btn btn-primary btn-sm">Confirmar atribuicao</button>
+      </div>
+    </aside>
+  </div>
+
+  <section class="card" style="margin-top:20px;">
+    <div class="card-header">
+      <div class="card-title">Estafetas elegiveis</div>
+      <span id="contador-estafetas" class="badge badge-info">0 resultados</span>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Estafeta</th>
+          <th>Zona</th>
+          <th>Veiculo</th>
+          <th>Disponibilidade</th>
+          <th>Carga atual</th>
+          <th>ETA</th>
+          <th>Atribuir</th>
+        </tr>
+      </thead>
+      <tbody id="lista-estafetas-atribuicao"></tbody>
+    </table>
+  </section>
+</main>
+
+<script src="./entregas.js"></script>
+</body>
+</html>

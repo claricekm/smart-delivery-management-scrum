@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhe da Entrega - SmartDelivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body data-page="detalhe-entrega">
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="7" fill="#01696f"/>
+      <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    SmartDelivery
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">Principal</div>
+    <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <div class="nav-section">Gestao</div>
+    <a href="../../sprint1/clientes/lista-clientes.Html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Clientes
+    </a>
+    <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+      Estafetas
+    </a>
+    <a href="../../sprint1/encomendas/lista-encomendas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+      Encomendas
+    </a>
+    <a href="./detalhe-entrega-timeline.html" class="nav-item active">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Entregas
+    </a>
+  </nav>
+</aside>
+
+<header class="topbar">
+  <div>
+    <div class="topbar-title">Detalhe da Entrega com Timeline</div>
+    <div class="breadcrumb">Entregas &rsaquo; <span>ENC-3204</span></div>
+  </div>
+  <div class="topbar-actions">
+    <a href="./atribuicao-encomenda-estafeta.html" class="btn btn-secondary btn-sm">Voltar</a>
+    <div class="user-avatar">MO</div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="card">
+    <div class="flex-between">
+      <div class="flex-row">
+        <div>
+          <div style="font-size:19px;font-weight:700;">Entrega ENC-3204</div>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:2px;">Rota R-08 · Hub Oriente</div>
+        </div>
+        <span id="entrega-estado-badge" class="badge badge-info badge-large">Em distribuicao</span>
+      </div>
+      <div id="entrega-acoes" class="flex-row gap-8">
+        <button id="avancar-estado" class="btn btn-primary btn-sm">Avancar estado</button>
+        <button id="registar-ocorrencia" class="btn btn-warning btn-sm">Registar ocorrencia</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:start;">
+    <section class="card" style="margin-bottom:0;">
+      <div class="section-label">Dados da entrega</div>
+      <div class="detail-grid">
+        <div><div class="detail-label">Cliente</div><div class="detail-value">Farmacia Central</div></div>
+        <div><div class="detail-label">Estafeta</div><div id="entrega-estafeta" class="detail-value">Joao Silva</div></div>
+        <div><div class="detail-label">Janela horaria</div><div class="detail-value">15:00 - 17:00</div></div>
+        <div><div class="detail-label">Estado operacional</div><div id="entrega-estado-label" class="detail-value">Saiu para entrega</div></div>
+        <div style="grid-column:span 2;"><div class="detail-label">Morada</div><div class="detail-value">Rua da Prata, 88, Lisboa</div></div>
+        <div style="grid-column:span 2;"><div class="detail-label">Notas</div><div class="detail-value">Ligar ao destinatario se houver atraso superior a 15 minutos.</div></div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-bottom:0;">
+      <div class="section-label">Indicadores</div>
+      <div class="workload-grid" style="grid-template-columns:repeat(2,1fr);margin-bottom:18px;">
+        <div class="workload-box">
+          <div id="indicador-paragem" class="workload-num" style="color:var(--primary);">4/7</div>
+          <div class="workload-lbl">Paragem na rota</div>
+        </div>
+        <div class="workload-box">
+          <div id="indicador-eta" class="workload-num" style="color:var(--warning);">16:05</div>
+          <div class="workload-lbl">ETA atual</div>
+        </div>
+      </div>
+      <div class="section-label">Prova de entrega</div>
+      <div id="prova-entrega" style="font-size:13px;color:var(--text-muted);">
+        Ainda nao registada.
+      </div>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top:20px;">
+    <div class="card-header">
+      <div class="card-title">Timeline de estados</div>
+      <span id="timeline-total" class="badge badge-info">0 eventos</span>
+    </div>
+    <div id="timeline-entrega" class="timeline"></div>
+  </section>
+</main>
+
+<script src="./entregas.js"></script>
+</body>
+</html>

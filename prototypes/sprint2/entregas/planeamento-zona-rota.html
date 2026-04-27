@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planeamento por Zona ou Rota - SmartDelivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body data-page="planeamento">
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="7" fill="#01696f"/>
+      <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    SmartDelivery
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">Principal</div>
+    <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <div class="nav-section">Gestao</div>
+    <a href="../../sprint1/clientes/lista-clientes.Html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Clientes
+    </a>
+    <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+      Estafetas
+    </a>
+    <a href="../../sprint1/encomendas/lista-encomendas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+      Encomendas
+    </a>
+    <a href="./planeamento-zona-rota.html" class="nav-item active">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Entregas
+    </a>
+  </nav>
+</aside>
+
+<header class="topbar">
+  <div>
+    <div class="topbar-title">Planeamento por Zona ou Rota</div>
+    <div class="breadcrumb">Entregas &rsaquo; <span>Planeamento</span></div>
+  </div>
+  <div class="topbar-actions">
+    <a href="./atribuicao-encomenda-estafeta.html" class="btn btn-secondary btn-sm">Voltar a atribuicao</a>
+    <div class="user-avatar">MO</div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Vista de planeamento</div>
+      <div class="flex-row gap-8">
+        <button class="btn btn-secondary btn-sm" data-planeamento-modo="zona">Por zona</button>
+        <button class="btn btn-secondary btn-sm" data-planeamento-modo="rota">Por rota</button>
+      </div>
+    </div>
+    <div class="search-bar" style="margin-bottom:0;">
+      <input id="planeamento-data" class="form-input" type="date" value="2026-04-27" style="max-width:180px;">
+      <select id="planeamento-filtro-zona" class="filter-select">
+        <option value="Todas">Todas as zonas</option>
+        <option value="Lisboa Centro">Lisboa Centro</option>
+        <option value="Lisboa Norte">Lisboa Norte</option>
+        <option value="Margem Sul">Margem Sul</option>
+      </select>
+      <span id="modo-ativo" class="badge badge-info">Vista por zona</span>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div id="planeamento-total" class="stat-value">0</div>
+      <div class="stat-label">Paragens planeadas</div>
+    </div>
+    <div class="stat-card">
+      <div id="planeamento-rotas" class="stat-value">0</div>
+      <div class="stat-label">Rotas ativas</div>
+    </div>
+    <div class="stat-card">
+      <div id="planeamento-zonas" class="stat-value">0</div>
+      <div class="stat-label">Zonas cobertas</div>
+    </div>
+    <div class="stat-card">
+      <div id="planeamento-carga" class="stat-value">0%</div>
+      <div class="stat-label">Carga media</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:start;">
+    <section class="card" style="margin-bottom:0;">
+      <div class="card-header">
+        <div class="card-title">Resumo operacional</div>
+        <span class="badge badge-warning">Atualizacao manual</span>
+      </div>
+      <div id="planeamento-resumo" class="detail-grid"></div>
+    </section>
+
+    <section class="card" style="margin-bottom:0;">
+      <div class="card-header">
+        <div class="card-title">Sequencia prevista</div>
+        <span id="planeamento-sequencia-titulo" class="badge badge-muted">Sem rota selecionada</span>
+      </div>
+      <div id="planeamento-sequencia" class="timeline"></div>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top:20px;">
+    <div class="card-header">
+      <div class="card-title">Mapa logico de zonas/rotas</div>
+      <span id="planeamento-contador" class="badge badge-info">0 registos</span>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Identificador</th>
+          <th>Zona</th>
+          <th>Estafeta</th>
+          <th>Paragens</th>
+          <th>Carga</th>
+          <th>Inicio</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody id="planeamento-lista"></tbody>
+    </table>
+  </section>
+</main>
+
+<script src="./entregas.js"></script>
+</body>
+</html>
