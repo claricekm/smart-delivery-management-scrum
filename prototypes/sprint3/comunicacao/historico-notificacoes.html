@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Histórico de Notificações — SmartDelivery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../assets/css/style.css">
-  <style>
-
-  </style>
+  <link rel="stylesheet" href="../../../assets/css/style.css"/>
 </head>
 <body>
 
@@ -27,9 +24,8 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
       Dashboard
     </a>
-
     <div class="nav-section">Gestão</div>
-    <a href="../clientes/lista-clientes.html" class="nav-item">
+    <a href="../clientes/lista-clientes.Html" class="nav-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       Clientes
     </a>
@@ -45,7 +41,6 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       Entregas
     </a>
-
     <div class="nav-section">Recursos</div>
     <a href="../../sprint2/recursos/lista-veiculos.html" class="nav-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -55,13 +50,18 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
       Indicadores
     </a>
-
     <div class="nav-section">Comunicação</div>
-    <a href="../../sprint3/comunicacao/preferencias-comunicacao.html" class="nav-item">
+    <a href="./preferencias-comunicacao.html" class="nav-item">
       <span style="font-size:13px;">✉️</span> Preferências
     </a>
-    <a href="../../sprint3/comunicacao/historico-notificacoes.html" class="nav-item">
+    <a href="./historico-notificacoes.html" class="nav-item active">
       <span style="font-size:13px;">📋</span> Histórico
+    </a>
+    <a href="./notificacao-estado.Html" class="nav-item">
+      <span style="font-size:13px;">🔔</span> Notif. Estado
+    </a>
+    <a href="../comunicacao-operacional/aviso-atraso.Html" class="nav-item">
+      <span style="font-size:13px;">⚠️</span> Avisos Atraso
     </a>
   </nav>
 </aside>
@@ -77,106 +77,97 @@
 </header>
 
 <main class="main">
-
-  <!-- Filtros -->
-  <div class="card">
-    <div class="section-label">Filtros</div>
-    <div class="filter-bar">
-      <select class="filter-select">
-        <option>Todos os clientes</option>
-        <option>João Silva</option>
-        <option>Marta Costa</option>
-        <option>Empresa XYZ, Lda.</option>
-      </select>
-      <select class="filter-select">
-        <option>Todos os tipos</option>
-        <option>Email</option>
-        <option>SMS</option>
-      </select>
-      <select class="filter-select">
-        <option>Todos os estados</option>
-        <option>Enviado</option>
-        <option>Pendente</option>
-        <option>Falha</option>
-      </select>
-      <input type="date" class="filter-select" value="2026-05-01">
-      <span style="font-size:13px;">a</span>
-      <input type="date" class="filter-select" value="2026-05-10">
-      <button class="btn btn-primary btn-sm" onclick="alert('Filtros aplicados (simulação)')">Filtrar</button>
-      <button class="btn btn-secondary btn-sm" onclick="alert('Filtros limpos')">Limpar</button>
+  <div class="page-header">
+    <div>
+      <div class="page-title">Histórico de Notificações</div>
+      <div class="page-subtitle">Registo completo de todas as notificações e avisos enviados aos clientes.</div>
     </div>
   </div>
 
-  <!-- Tabela de Histórico -->
-  <div class="card" style="padding:0; overflow:auto;">
-    <table class="notif-table">
+  <div class="stats-row" style="grid-template-columns:repeat(4,1fr);">
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--text)" data-hist-total>0</div>
+      <div class="stat-label">Total enviadas</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--success)" data-hist-enviadas>0</div>
+      <div class="stat-label">Entregues</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--warning)" data-hist-pendentes>0</div>
+      <div class="stat-label">Pendentes</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--error)" data-hist-falhas>0</div>
+      <div class="stat-label">Falhas</div>
+    </div>
+  </div>
+
+  <div class="card filter-card">
+    <div class="section-label">Filtros</div>
+    <div class="search-bar" style="flex-wrap:wrap;gap:10px;">
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="search-input" placeholder="Pesquisar cliente ou encomenda..." data-hist-search/>
+      </div>
+      <select class="filter-select" data-hist-filter-tipo>
+        <option value="">Todos os tipos</option>
+        <option value="Email">📧 Email</option>
+        <option value="SMS">💬 SMS</option>
+        <option value="Ambos">Ambos</option>
+      </select>
+      <select class="filter-select" data-hist-filter-origem>
+        <option value="">Todas as origens</option>
+        <option value="estado">🔔 Notif. Estado</option>
+        <option value="aviso">⚠️ Aviso Atraso</option>
+      </select>
+      <input type="date" class="filter-select" data-hist-filter-de style="max-width:150px;"/>
+      <span style="font-size:13px;color:var(--text-muted);">a</span>
+      <input type="date" class="filter-select" data-hist-filter-ate style="max-width:150px;"/>
+      <button class="btn btn-secondary btn-sm" id="btnLimparFiltros">Limpar</button>
+    </div>
+  </div>
+
+  <div class="card" style="padding:0;margin-bottom:16px;">
+    <table class="table">
       <thead>
         <tr>
           <th>ID</th>
           <th>Data/Hora</th>
           <th>Cliente</th>
-          <th>Encomenda</th>
-          <th>Tipo</th>
+          <th>Encomenda/Entrega</th>
+          <th>Canal</th>
+          <th>Origem</th>
           <th>Conteúdo</th>
           <th>Estado</th>
+          <th>Ações</th>
         </tr>
       </thead>
-      <tbody id="notif-body">
-        <!-- Preenchido via JS -->
-      </tbody>
+      <tbody data-hist-lista></tbody>
     </table>
     <div class="pagination-container">
-      <span class="pagination-info">1-8 de 36 notificações</span>
+      <span class="pagination-info" data-hist-resumo>—</span>
       <div class="pagination-controls">
-        <a href="#" class="btn btn-secondary btn-sm" style="pointer-events:none; opacity:0.5;">← Anterior</a>
-        <a href="#" class="btn btn-primary btn-sm">1</a>
-        <a href="#" class="btn btn-secondary btn-sm">2</a>
-        <a href="#" class="btn btn-secondary btn-sm">3</a>
-        <a href="#" class="btn btn-secondary btn-sm">Seguinte →</a>
+        <button class="btn btn-secondary btn-sm" id="btnPrevPage" disabled>← Anterior</button>
+        <span id="paginaAtual" style="font-size:13px;padding:5px 10px;font-weight:600;color:var(--primary);"></span>
+        <button class="btn btn-secondary btn-sm" id="btnNextPage">Seguinte →</button>
       </div>
     </div>
   </div>
 
+  <div class="modal-overlay" style="display:none;" id="modalDetalheHist">
+    <div class="modal" style="max-width:480px;">
+      <div class="modal-title">Detalhe da Notificação</div>
+      <div id="modalDetalheHistConteudo"></div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="document.getElementById('modalDetalheHist').style.display='none'">Fechar</button>
+      </div>
+    </div>
+  </div>
 </main>
 
-<script>
-  const notificacoes = [
-    { id: 'NOT-101', data: '2026-05-04 09:30', cliente: 'João Silva', encomenda: '#1025', tipo: 'Email', conteudo: 'Confirmação de entrega', estado: 'Enviado' },
-    { id: 'NOT-100', data: '2026-05-04 08:45', cliente: 'Marta Costa', encomenda: '#1024', tipo: 'SMS', conteudo: 'Estafeta a caminho', estado: 'Enviado' },
-    { id: 'NOT-099', data: '2026-05-03 18:10', cliente: 'João Silva', encomenda: '#1023', tipo: 'Email', conteudo: 'Aviso de atraso', estado: 'Enviado' },
-    { id: 'NOT-098', data: '2026-05-03 14:00', cliente: 'Empresa XYZ', encomenda: '#1022', tipo: 'Email', conteudo: 'Reagendamento', estado: 'Falha' },
-    { id: 'NOT-097', data: '2026-05-02 11:20', cliente: 'Marta Costa', encomenda: '#1021', tipo: 'SMS', conteudo: 'Confirmação de entrega', estado: 'Enviado' },
-    { id: 'NOT-096', data: '2026-05-02 09:50', cliente: 'João Silva', encomenda: '#1020', tipo: 'Email', conteudo: 'Encomenda registada', estado: 'Enviado' },
-    { id: 'NOT-095', data: '2026-05-01 16:30', cliente: 'Empresa XYZ', encomenda: '#1019', tipo: 'SMS', conteudo: 'Confirmação de entrega', estado: 'Pendente' },
-    { id: 'NOT-094', data: '2026-05-01 10:15', cliente: 'Marta Costa', encomenda: '#1018', tipo: 'Email', conteudo: 'Aviso de atraso', estado: 'Enviado' }
-  ];
-
-  function renderNotificacoes() {
-    const tbody = document.getElementById('notif-body');
-    tbody.innerHTML = '';
-    notificacoes.forEach(not => {
-      const tr = document.createElement('tr');
-      let estadoClass = '';
-      if (not.estado === 'Enviado') estadoClass = 'status-enviado';
-      else if (not.estado === 'Pendente') estadoClass = 'status-pendente';
-      else estadoClass = 'status-falha';
-
-      let tipoIcon = not.tipo === 'Email' ? '📧' : '💬';
-
-      tr.innerHTML = `
-        <td><strong>${not.id}</strong></td>
-        <td>${not.data}</td>
-        <td>${not.cliente}</td>
-        <td>${not.encomenda}</td>
-        <td>${tipoIcon} ${not.tipo}</td>
-        <td>${not.conteudo}</td>
-        <td><span class="${estadoClass}">${not.estado}</span></td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
-
-  renderNotificacoes();
-</script>
+<script src="../clientes/clientes.js"></script>
+<script src="./comunicacao.js"></script>
+<script src="./historico.js"></script>
 </body>
 </html>

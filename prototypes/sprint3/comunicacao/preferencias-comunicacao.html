@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Preferências de Comunicação — SmartDelivery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css"/>
   <style>
-
+    .toggle-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .toggle-row:last-child { border-bottom: none; }
+    .toggle-info { flex: 1; }
+    .toggle-label { font-size: 13.5px; font-weight: 600; }
+    .toggle-desc  { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .switch { position: relative; display: inline-block; width: 42px; height: 24px; flex-shrink: 0; margin-left: 16px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #ccc; border-radius: 24px; transition: .3s;
+    }
+    .slider:before {
+      position: absolute; content: "";
+      height: 18px; width: 18px; left: 3px; bottom: 3px;
+      background: white; border-radius: 50%; transition: .3s;
+    }
+    input:checked + .slider { background: var(--primary); }
+    input:checked + .slider:before { transform: translateX(18px); }
   </style>
 </head>
 <body>
@@ -27,9 +50,8 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
       Dashboard
     </a>
-
     <div class="nav-section">Gestão</div>
-    <a href="../clientes/lista-clientes.html" class="nav-item">
+    <a href="../clientes/lista-clientes.Html" class="nav-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       Clientes
     </a>
@@ -45,7 +67,6 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       Entregas
     </a>
-
     <div class="nav-section">Recursos</div>
     <a href="../../sprint2/recursos/lista-veiculos.html" class="nav-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -55,13 +76,18 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
       Indicadores
     </a>
-
     <div class="nav-section">Comunicação</div>
-    <a href="../../sprint3/comunicacao/preferencias-comunicacao.html" class="nav-item">
+    <a href="./preferencias-comunicacao.html" class="nav-item active">
       <span style="font-size:13px;">✉️</span> Preferências
     </a>
-    <a href="../../sprint3/comunicacao/historico-notificacoes.html" class="nav-item">
+    <a href="./historico-notificacoes.html" class="nav-item">
       <span style="font-size:13px;">📋</span> Histórico
+    </a>
+    <a href="./notificacao-estado.Html" class="nav-item">
+      <span style="font-size:13px;">🔔</span> Notif. Estado
+    </a>
+    <a href="../comunicacao-operacional/aviso-atraso.Html" class="nav-item">
+      <span style="font-size:13px;">⚠️</span> Avisos Atraso
     </a>
   </nav>
 </aside>
@@ -77,148 +103,92 @@
 </header>
 
 <main class="main">
-
-  <!-- Seleção de Cliente -->
-  <div class="card">
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">Cliente</label>
-        <select class="form-select" id="cliente-select" onchange="carregarPreferencias()">
-          <option value="1">João Silva (Particular)</option>
-          <option value="2">Marta Costa (Particular)</option>
-          <option value="3">Empresa XYZ, Lda. (Empresa)</option>
-        </select>
-      </div>
+  <div class="page-header">
+    <div>
+      <div class="page-title">Preferências de Comunicação</div>
+      <div class="page-subtitle">Defina os canais e tipos de notificação para cada cliente — US25.</div>
     </div>
   </div>
 
-  <!-- Canais de Comunicação -->
+  <div class="card">
+    <div class="form-section-title">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Selecionar Cliente
+    </div>
+    <div class="form-group" style="max-width:400px;">
+      <label class="form-label">Cliente</label>
+      <select class="form-select" id="clienteSelect" data-pref-cliente-select>
+        <option value="">A carregar clientes...</option>
+      </select>
+    </div>
+  </div>
+
   <div class="card">
     <div class="section-label">Canais de Comunicação</div>
-    <div class="pref-section">
-      <div class="toggle-group">
-        <div class="toggle-row">
-          <div class="toggle-info">
-            <div class="toggle-label">📧 Email</div>
-            <div class="toggle-desc">Receber notificações por email (joao@exemplo.com)</div>
-          </div>
-          <label class="switch">
-            <input type="checkbox" id="canal-email" checked>
-            <span class="slider"></span>
-          </label>
-        </div>
-        <div class="toggle-row">
-          <div class="toggle-info">
-            <div class="toggle-label">💬 SMS</div>
-            <div class="toggle-desc">Receber notificações por SMS (912 345 678)</div>
-          </div>
-          <label class="switch">
-            <input type="checkbox" id="canal-sms" checked>
-            <span class="slider"></span>
-          </label>
-        </div>
+    <div class="toggle-row">
+      <div class="toggle-info">
+        <div class="toggle-label">📧 Email</div>
+        <div class="toggle-desc" id="descEmail">Receber notificações por email</div>
       </div>
+      <label class="switch"><input type="checkbox" id="canal-email"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <div class="toggle-info">
+        <div class="toggle-label">💬 SMS</div>
+        <div class="toggle-desc" id="descSms">Receber notificações por SMS</div>
+      </div>
+      <label class="switch"><input type="checkbox" id="canal-sms"/><span class="slider"></span></label>
     </div>
   </div>
 
-  <!-- Tipos de Notificação -->
   <div class="card">
     <div class="section-label">Tipos de Notificação</div>
-    <div class="pref-section">
-      <div class="toggle-group">
-        <div class="toggle-row">
-          <div class="toggle-info">
-            <div class="toggle-label">✅ Confirmação de Entrega</div>
-            <div class="toggle-desc">Quando a encomenda for marcada como entregue</div>
-          </div>
-          <label class="switch">
-            <input type="checkbox" id="notif-confirmacao" checked>
-            <span class="slider"></span>
-          </label>
-        </div>
-        <div class="toggle-row">
-          <div class="toggle-info">
-            <div class="toggle-label">⚠️ Aviso de Atraso</div>
-            <div class="toggle-desc">Quando houver atraso ou reagendamento</div>
-          </div>
-          <label class="switch">
-            <input type="checkbox" id="notif-atraso" checked>
-            <span class="slider"></span>
-          </label>
-        </div>
-        <div class="toggle-row">
-          <div class="toggle-info">
-            <div class="toggle-label">🚚 Saída para Entrega</div>
-            <div class="toggle-desc">Quando o estafeta iniciar a distribuição</div>
-          </div>
-          <label class="switch">
-            <input type="checkbox" id="notif-saida">
-            <span class="slider"></span>
-          </label>
-        </div>
-        <div class="toggle-row">
-          <div class="toggle-info">
-            <div class="toggle-label">📦 Encomenda Registada</div>
-            <div class="toggle-desc">Quando uma nova encomenda for criada</div>
-          </div>
-          <label class="switch">
-            <input type="checkbox" id="notif-registo">
-            <span class="slider"></span>
-          </label>
-        </div>
+    <div class="toggle-row">
+      <div class="toggle-info">
+        <div class="toggle-label">✅ Confirmação de Entrega</div>
+        <div class="toggle-desc">Quando a encomenda for marcada como entregue (US27)</div>
       </div>
+      <label class="switch"><input type="checkbox" id="notif-confirmacao"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <div class="toggle-info">
+        <div class="toggle-label">⚠️ Aviso de Atraso / Reagendamento</div>
+        <div class="toggle-desc">Quando houver atraso ou reagendamento da entrega (US28)</div>
+      </div>
+      <label class="switch"><input type="checkbox" id="notif-atraso"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <div class="toggle-info">
+        <div class="toggle-label">🚚 Saída para Entrega</div>
+        <div class="toggle-desc">Quando o estafeta iniciar a distribuição (US27)</div>
+      </div>
+      <label class="switch"><input type="checkbox" id="notif-saida"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <div class="toggle-info">
+        <div class="toggle-label">📦 Encomenda Registada</div>
+        <div class="toggle-desc">Quando uma nova encomenda for criada</div>
+      </div>
+      <label class="switch"><input type="checkbox" id="notif-registo"/><span class="slider"></span></label>
     </div>
   </div>
 
-  <!-- Ações -->
   <div class="form-actions">
-    <button class="btn btn-secondary" onclick="alert('Alterações canceladas')">Cancelar</button>
-    <button class="btn btn-primary" onclick="guardarPreferencias()">Guardar Preferências</button>
+    <button class="btn btn-secondary" id="btnCancelarPref">Cancelar</button>
+    <button class="btn btn-primary" id="btnGuardarPref">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      Guardar Preferências
+    </button>
   </div>
 
-  <!-- Mensagem de sucesso (simulada) -->
-  <div id="msg-sucesso" class="alert alert-success" style="display:none; margin-top:20px;">
-    ✅ Preferências guardadas com sucesso!
+  <div class="alert alert-success" style="display:none;margin-top:20px;" id="prefSuccessMsg">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+    <div>Preferências guardadas com sucesso! Estas definições serão respeitadas em futuras notificações.</div>
   </div>
-
 </main>
 
-<script>
-  function carregarPreferencias() {
-    // Simular carga de preferências de outro cliente
-    const cliente = document.getElementById('cliente-select').value;
-    if (cliente === '1') {
-      document.getElementById('canal-email').checked = true;
-      document.getElementById('canal-sms').checked = true;
-      document.getElementById('notif-confirmacao').checked = true;
-      document.getElementById('notif-atraso').checked = true;
-      document.getElementById('notif-saida').checked = false;
-      document.getElementById('notif-registo').checked = false;
-    } else if (cliente === '2') {
-      document.getElementById('canal-email').checked = true;
-      document.getElementById('canal-sms').checked = false;
-      document.getElementById('notif-confirmacao').checked = true;
-      document.getElementById('notif-atraso').checked = false;
-      document.getElementById('notif-saida').checked = true;
-      document.getElementById('notif-registo').checked = false;
-    } else {
-      document.getElementById('canal-email').checked = true;
-      document.getElementById('canal-sms').checked = true;
-      document.getElementById('notif-confirmacao').checked = true;
-      document.getElementById('notif-atraso').checked = true;
-      document.getElementById('notif-saida').checked = true;
-      document.getElementById('notif-registo').checked = true;
-    }
-    document.getElementById('msg-sucesso').style.display = 'none';
-  }
-
-  function guardarPreferencias() {
-    document.getElementById('msg-sucesso').style.display = 'flex';
-    // Ocultar após 3 segundos
-    setTimeout(() => {
-      document.getElementById('msg-sucesso').style.display = 'none';
-    }, 3000);
-  }
-</script>
+<script src="../clientes/clientes.js"></script>
+<script src="./comunicacao.js"></script>
+<script src="./preferencias.js"></script>
 </body>
 </html>
