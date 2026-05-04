@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preferências de Comunicação — SmartDelivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <style>
+
+  </style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="7" fill="#01696f"/>
+      <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    SmartDelivery
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">Principal</div>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <div class="nav-section">Gestão</div>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Clientes
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+      Estafetas
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+      Encomendas
+    </a>
+    <div class="nav-section">Comunicação</div>
+    <a href="preferencias-comunicacao.html" class="nav-item active">✉️ Preferências</a>
+    <a href="historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+  </nav>
+</aside>
+
+<header class="topbar">
+  <div>
+    <div class="topbar-title">Preferências de Comunicação</div>
+    <div class="breadcrumb">Comunicação › <span>Preferências do Cliente</span></div>
+  </div>
+  <div class="topbar-actions">
+    <div class="user-avatar">AR</div>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- Seleção de Cliente -->
+  <div class="card">
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Cliente</label>
+        <select class="form-select" id="cliente-select" onchange="carregarPreferencias()">
+          <option value="1">João Silva (Particular)</option>
+          <option value="2">Marta Costa (Particular)</option>
+          <option value="3">Empresa XYZ, Lda. (Empresa)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Canais de Comunicação -->
+  <div class="card">
+    <div class="section-label">Canais de Comunicação</div>
+    <div class="pref-section">
+      <div class="toggle-group">
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <div class="toggle-label">📧 Email</div>
+            <div class="toggle-desc">Receber notificações por email (joao@exemplo.com)</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="canal-email" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <div class="toggle-label">💬 SMS</div>
+            <div class="toggle-desc">Receber notificações por SMS (912 345 678)</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="canal-sms" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tipos de Notificação -->
+  <div class="card">
+    <div class="section-label">Tipos de Notificação</div>
+    <div class="pref-section">
+      <div class="toggle-group">
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <div class="toggle-label">✅ Confirmação de Entrega</div>
+            <div class="toggle-desc">Quando a encomenda for marcada como entregue</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="notif-confirmacao" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <div class="toggle-label">⚠️ Aviso de Atraso</div>
+            <div class="toggle-desc">Quando houver atraso ou reagendamento</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="notif-atraso" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <div class="toggle-label">🚚 Saída para Entrega</div>
+            <div class="toggle-desc">Quando o estafeta iniciar a distribuição</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="notif-saida">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <div class="toggle-label">📦 Encomenda Registada</div>
+            <div class="toggle-desc">Quando uma nova encomenda for criada</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="notif-registo">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ações -->
+  <div class="form-actions">
+    <button class="btn btn-secondary" onclick="alert('Alterações canceladas')">Cancelar</button>
+    <button class="btn btn-primary" onclick="guardarPreferencias()">Guardar Preferências</button>
+  </div>
+
+  <!-- Mensagem de sucesso (simulada) -->
+  <div id="msg-sucesso" class="alert alert-success" style="display:none; margin-top:20px;">
+    ✅ Preferências guardadas com sucesso!
+  </div>
+
+</main>
+
+<script>
+  function carregarPreferencias() {
+    // Simular carga de preferências de outro cliente
+    const cliente = document.getElementById('cliente-select').value;
+    if (cliente === '1') {
+      document.getElementById('canal-email').checked = true;
+      document.getElementById('canal-sms').checked = true;
+      document.getElementById('notif-confirmacao').checked = true;
+      document.getElementById('notif-atraso').checked = true;
+      document.getElementById('notif-saida').checked = false;
+      document.getElementById('notif-registo').checked = false;
+    } else if (cliente === '2') {
+      document.getElementById('canal-email').checked = true;
+      document.getElementById('canal-sms').checked = false;
+      document.getElementById('notif-confirmacao').checked = true;
+      document.getElementById('notif-atraso').checked = false;
+      document.getElementById('notif-saida').checked = true;
+      document.getElementById('notif-registo').checked = false;
+    } else {
+      document.getElementById('canal-email').checked = true;
+      document.getElementById('canal-sms').checked = true;
+      document.getElementById('notif-confirmacao').checked = true;
+      document.getElementById('notif-atraso').checked = true;
+      document.getElementById('notif-saida').checked = true;
+      document.getElementById('notif-registo').checked = true;
+    }
+    document.getElementById('msg-sucesso').style.display = 'none';
+  }
+
+  function guardarPreferencias() {
+    document.getElementById('msg-sucesso').style.display = 'flex';
+    // Ocultar após 3 segundos
+    setTimeout(() => {
+      document.getElementById('msg-sucesso').style.display = 'none';
+    }, 3000);
+  }
+</script>
+</body>
+</html>

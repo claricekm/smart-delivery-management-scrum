@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico de Notificações — SmartDelivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <style>
+
+  </style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="7" fill="#01696f"/>
+      <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    SmartDelivery
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">Principal</div>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <div class="nav-section">Gestão</div>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Clientes
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+      Estafetas
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+      Encomendas
+    </a>
+    <div class="nav-section">Comunicação</div>
+    <a href="preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+    <a href="historico-notificacoes.html" class="nav-item active">📋 Histórico</a>
+  </nav>
+</aside>
+
+<header class="topbar">
+  <div>
+    <div class="topbar-title">Histórico de Notificações</div>
+    <div class="breadcrumb">Comunicação › <span>Histórico</span></div>
+  </div>
+  <div class="topbar-actions">
+    <div class="user-avatar">AR</div>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- Filtros -->
+  <div class="card">
+    <div class="section-label">Filtros</div>
+    <div class="filter-bar">
+      <select class="filter-select">
+        <option>Todos os clientes</option>
+        <option>João Silva</option>
+        <option>Marta Costa</option>
+        <option>Empresa XYZ, Lda.</option>
+      </select>
+      <select class="filter-select">
+        <option>Todos os tipos</option>
+        <option>Email</option>
+        <option>SMS</option>
+      </select>
+      <select class="filter-select">
+        <option>Todos os estados</option>
+        <option>Enviado</option>
+        <option>Pendente</option>
+        <option>Falha</option>
+      </select>
+      <input type="date" class="filter-select" value="2026-05-01">
+      <span style="font-size:13px;">a</span>
+      <input type="date" class="filter-select" value="2026-05-10">
+      <button class="btn btn-primary btn-sm" onclick="alert('Filtros aplicados (simulação)')">Filtrar</button>
+      <button class="btn btn-secondary btn-sm" onclick="alert('Filtros limpos')">Limpar</button>
+    </div>
+  </div>
+
+  <!-- Tabela de Histórico -->
+  <div class="card" style="padding:0; overflow:auto;">
+    <table class="notif-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Data/Hora</th>
+          <th>Cliente</th>
+          <th>Encomenda</th>
+          <th>Tipo</th>
+          <th>Conteúdo</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody id="notif-body">
+        <!-- Preenchido via JS -->
+      </tbody>
+    </table>
+    <div class="pagination-container">
+      <span class="pagination-info">1-8 de 36 notificações</span>
+      <div class="pagination-controls">
+        <a href="#" class="btn btn-secondary btn-sm" style="pointer-events:none; opacity:0.5;">← Anterior</a>
+        <a href="#" class="btn btn-primary btn-sm">1</a>
+        <a href="#" class="btn btn-secondary btn-sm">2</a>
+        <a href="#" class="btn btn-secondary btn-sm">3</a>
+        <a href="#" class="btn btn-secondary btn-sm">Seguinte →</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const notificacoes = [
+    { id: 'NOT-101', data: '2026-05-04 09:30', cliente: 'João Silva', encomenda: '#1025', tipo: 'Email', conteudo: 'Confirmação de entrega', estado: 'Enviado' },
+    { id: 'NOT-100', data: '2026-05-04 08:45', cliente: 'Marta Costa', encomenda: '#1024', tipo: 'SMS', conteudo: 'Estafeta a caminho', estado: 'Enviado' },
+    { id: 'NOT-099', data: '2026-05-03 18:10', cliente: 'João Silva', encomenda: '#1023', tipo: 'Email', conteudo: 'Aviso de atraso', estado: 'Enviado' },
+    { id: 'NOT-098', data: '2026-05-03 14:00', cliente: 'Empresa XYZ', encomenda: '#1022', tipo: 'Email', conteudo: 'Reagendamento', estado: 'Falha' },
+    { id: 'NOT-097', data: '2026-05-02 11:20', cliente: 'Marta Costa', encomenda: '#1021', tipo: 'SMS', conteudo: 'Confirmação de entrega', estado: 'Enviado' },
+    { id: 'NOT-096', data: '2026-05-02 09:50', cliente: 'João Silva', encomenda: '#1020', tipo: 'Email', conteudo: 'Encomenda registada', estado: 'Enviado' },
+    { id: 'NOT-095', data: '2026-05-01 16:30', cliente: 'Empresa XYZ', encomenda: '#1019', tipo: 'SMS', conteudo: 'Confirmação de entrega', estado: 'Pendente' },
+    { id: 'NOT-094', data: '2026-05-01 10:15', cliente: 'Marta Costa', encomenda: '#1018', tipo: 'Email', conteudo: 'Aviso de atraso', estado: 'Enviado' }
+  ];
+
+  function renderNotificacoes() {
+    const tbody = document.getElementById('notif-body');
+    tbody.innerHTML = '';
+    notificacoes.forEach(not => {
+      const tr = document.createElement('tr');
+      let estadoClass = '';
+      if (not.estado === 'Enviado') estadoClass = 'status-enviado';
+      else if (not.estado === 'Pendente') estadoClass = 'status-pendente';
+      else estadoClass = 'status-falha';
+
+      let tipoIcon = not.tipo === 'Email' ? '📧' : '💬';
+
+      tr.innerHTML = `
+        <td><strong>${not.id}</strong></td>
+        <td>${not.data}</td>
+        <td>${not.cliente}</td>
+        <td>${not.encomenda}</td>
+        <td>${tipoIcon} ${not.tipo}</td>
+        <td>${not.conteudo}</td>
+        <td><span class="${estadoClass}">${not.estado}</span></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  renderNotificacoes();
+</script>
+</body>
+</html>
