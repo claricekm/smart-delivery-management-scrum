@@ -264,8 +264,9 @@
           <div style="flex:1">
             <div style="font-size:19px;font-weight:700;">${displayName}</div>
             <div style="font-size:13px;color:var(--text-muted);margin-top:2px;">${cliente.contacto} · ${cliente.email}</div>
-            <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
+            <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
               <span class="tag">${getTipoTag(cliente.tipo)}</span>
+              <a href="lista-moradas.Html?clienteId=${cliente.id}" class="btn btn-secondary btn-sm">📍 Ver Moradas</a>
             </div>
           </div>
           <div style="text-align:right;">
