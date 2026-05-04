@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Selecionar Morada - SmartDelivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css"/>
+  <style>
+    .morada-card {
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--surface);
+    }
+    .morada-card:hover { border-color: var(--primary); background: #e8f2f1; }
+    .morada-card.selected { border-color: var(--primary); background: #e8f2f1; }
+    .morada-radio {
+      width: 18px; height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 50%; margin-top: 2px;
+      flex-shrink: 0; display: flex;
+      align-items: center; justify-content: center;
+      transition: border-color 0.15s;
+    }
+    .morada-card.selected .morada-radio { border-color: var(--primary); background: var(--primary); }
+    .morada-card.selected .morada-radio::after {
+      content: ''; width: 6px; height: 6px;
+      border-radius: 50%; background: white;
+    }
+    .morada-info { flex: 1; }
+    .morada-rua { font-weight: 600; font-size: 14px; }
+    .morada-detalhe { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+    .morada-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+    .context-card {
+      background: #e8f2f1; border: 1px solid var(--primary);
+      border-radius: var(--radius); padding: 14px 20px;
+      margin-bottom: 20px; display: flex;
+      align-items: center; gap: 12px; font-size: 13px;
+    }
+    .painel-confirmacao { position: sticky; top: calc(64px + 24px); }
+  </style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="7" fill="#01696f"/>
+      <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    SmartDelivery
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">Principal</div>
+    <a href="../dashboard/dashboard.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <div class="nav-section">Gestão</div>
+    <a href="../clientes/lista-clientes.Html" class="nav-item active">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Clientes
+    </a>
+    <a href="../estafetas/lista-estafetas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+      Estafetas
+    </a>
+    <a href="../encomendas/lista-encomendas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+      Encomendas
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Entregas
+    </a>
+    <div class="nav-section">Recursos</div>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Veículos
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Indicadores
+    </a>
+    <div class="nav-section">Comunicação</div>
+    <a href="../comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+    <a href="../comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+  </nav>
+</aside>
+
+<header class="topbar">
+  <div>
+    <div class="topbar-title">Selecionar Morada de Entrega</div>
+    <div class="breadcrumb">Encomendas › Nova Encomenda › <span>Morada de Entrega</span></div>
+  </div>
+  <div class="topbar-actions">
+    <a href="#" class="btn btn-secondary btn-sm" onclick="history.back()">← Voltar</a>
+    <div class="user-avatar">MO</div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Selecionar Morada</div>
+      <div class="page-subtitle" id="subtituloSelecao">Escolha a morada de entrega para esta encomenda.</div>
+    </div>
+  </div>
+
+  <div class="context-card" id="contextCard" style="display:none;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div>A criar encomenda para o cliente <strong id="nomeClienteCtx"></strong>. Selecione uma das moradas registadas ou adicione uma nova.</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;">
+    <div>
+      <div class="section-label">Moradas disponíveis</div>
+      <div id="listaMoradasSelecao">
+        <div style="text-align:center;padding:40px;color:var(--text-muted);font-size:13px;">
+          A carregar moradas...
+        </div>
+      </div>
+      <a href="registo-morada.Html" class="btn btn-secondary" id="btnAdicionarMorada" style="width:100%;justify-content:center;margin-top:8px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Adicionar nova morada
+      </a>
+    </div>
+
+    <div class="painel-confirmacao">
+      <div class="card" style="margin-bottom:0;">
+        <div class="section-label">Morada selecionada</div>
+        <div id="moradaSelecionadaDetalhe" style="color:var(--text-muted);font-size:13px;padding:16px 0;">
+          Nenhuma morada selecionada.
+        </div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:8px;">
+          <button class="btn btn-primary" style="width:100%;justify-content:center;" id="btnUsarMorada" disabled onclick="confirmarMorada()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Usar esta morada
+          </button>
+          <a href="registo-morada.Html" id="btnAdicionarMoradaPanel" class="btn btn-secondary" style="width:100%;justify-content:center;">
+            + Adicionar nova morada
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-success" style="display:none;margin-top:20px;" id="alertaSucesso">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+    <div>Morada confirmada! A encomenda será entregue em <strong id="moradaConfirmada"></strong>.</div>
+  </div>
+</main>
+
+<script src="./clientes.js"></script>
+<script src="./moradas.js"></script>
+</body>
+</html>
