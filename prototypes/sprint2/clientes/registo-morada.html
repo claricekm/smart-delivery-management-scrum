@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Registar Morada - SmartDelivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css"/>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="7" fill="#01696f"/>
+      <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    SmartDelivery
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">Principal</div>
+    <a href="../dashboard/dashboard.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <div class="nav-section">Gestão</div>
+    <a href="../clientes/lista-clientes.Html" class="nav-item active">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Clientes
+    </a>
+    <a href="../estafetas/lista-estafetas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+      Estafetas
+    </a>
+    <a href="../encomendas/lista-encomendas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+      Encomendas
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Entregas
+    </a>
+    <div class="nav-section">Recursos</div>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Veículos
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Indicadores
+    </a>
+    <div class="nav-section">Comunicação</div>
+    <a href="../comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+    <a href="../comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+  </nav>
+</aside>
+
+<header class="topbar">
+  <div>
+    <div class="topbar-title">Registar Morada</div>
+    <div class="breadcrumb">Clientes › <span data-cliente-breadcrumb>Cliente</span> › Moradas › <span>Nova Morada</span></div>
+  </div>
+  <div class="topbar-actions">
+    <a href="lista-moradas.Html" class="btn btn-secondary btn-sm" id="btnVoltar">← Voltar à lista</a>
+    <div class="user-avatar">MO</div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Nova Morada</div>
+      <div class="page-subtitle">Preencha todos os campos obrigatórios para registar uma nova morada de entrega.</div>
+    </div>
+  </div>
+
+  <div class="alert alert-error" style="display:none;" data-form-error>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div><strong>Não foi possível guardar a morada.</strong> Existem campos obrigatórios por preencher.</div>
+  </div>
+
+  <form data-morada-form>
+    <div class="card">
+      <div class="form-section-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Dados da Morada
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Rua / Avenida <span class="required">*</span></label>
+          <input type="text" class="form-input" name="rua" placeholder="Ex: Rua das Flores"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Número / Andar <span class="required">*</span></label>
+          <input type="text" class="form-input" name="numero" placeholder="Ex: 12, 2º Dto"/>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Código Postal <span class="required">*</span></label>
+          <input type="text" class="form-input" name="codigoPostal" placeholder="Ex: 1200-001"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cidade <span class="required">*</span></label>
+          <input type="text" class="form-input" name="cidade" placeholder="Ex: Lisboa"/>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Tipo de Morada <span class="required">*</span></label>
+          <select class="form-select" name="tipo">
+            <option value="">Selecionar...</option>
+            <option value="Casa">🏠 Casa</option>
+            <option value="Trabalho">💼 Trabalho</option>
+            <option value="Outro">📦 Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Distrito</label>
+          <select class="form-select" name="distrito">
+            <option value="">Selecionar...</option>
+            <option>Lisboa</option>
+            <option>Porto</option>
+            <option>Setúbal</option>
+            <option>Braga</option>
+            <option>Aveiro</option>
+            <option>Coimbra</option>
+            <option>Viseu</option>
+            <option>Faro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Instruções de entrega</label>
+        <textarea class="form-textarea" name="instrucoes" placeholder="Ex: Tocar à campainha 2 vezes. Portão azul à esquerda."></textarea>
+        <div class="form-hint">Campo opcional. Informações úteis para o estafeta.</div>
+      </div>
+
+      <div class="form-group">
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;font-weight:500;">
+          <input type="checkbox" name="principal" style="width:16px;height:16px;accent-color:var(--primary);cursor:pointer;"/>
+          Definir como morada principal
+        </label>
+        <div class="form-hint" style="margin-left:26px;">A morada principal é usada por defeito em novas encomendas.</div>
+      </div>
+
+      <div class="form-actions">
+        <a href="lista-moradas.Html" class="btn btn-secondary" id="btnCancelar">Cancelar</a>
+        <button type="submit" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Guardar Morada
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="alert alert-success" style="display:none;" id="successMsg">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+    <div>Morada registada com sucesso! <a href="lista-moradas.Html" class="btn-link" id="linkListaMoradas">Ver lista de moradas</a>.</div>
+  </div>
+</main>
+
+<script src="./clientes.js"></script>
+<script src="./moradas.js"></script>
+</body>
+</html>

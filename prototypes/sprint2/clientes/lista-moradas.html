@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Moradas do Cliente - SmartDelivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css"/>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="7" fill="#01696f"/>
+      <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    SmartDelivery
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">Principal</div>
+    <a href="../dashboard/dashboard.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <div class="nav-section">Gestão</div>
+    <a href="../clientes/lista-clientes.Html" class="nav-item active">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Clientes
+    </a>
+    <a href="../estafetas/lista-estafetas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+      Estafetas
+    </a>
+    <a href="../encomendas/lista-encomendas.html" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
+      Encomendas
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Entregas
+    </a>
+    <div class="nav-section">Recursos</div>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Veículos
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Indicadores
+    </a>
+    <div class="nav-section">Comunicação</div>
+    <a href="../comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+    <a href="../comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+  </nav>
+</aside>
+
+<header class="topbar">
+  <div>
+    <div class="topbar-title">Moradas do Cliente</div>
+    <div class="breadcrumb">Clientes › <span data-cliente-breadcrumb>Cliente</span> › <span>Moradas</span></div>
+  </div>
+  <div class="topbar-actions">
+    <a href="detalhe-cliente.Html" class="btn btn-secondary btn-sm" id="btnVoltar">← Voltar</a>
+    <a href="registo-morada.Html" class="btn btn-primary btn-sm" id="btnNovaMorada">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Nova Morada
+    </a>
+    <div class="user-avatar">MO</div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Moradas</div>
+      <div class="page-subtitle">Gerencie as moradas de entrega associadas ao cliente.</div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--text)" data-total-moradas>0</div>
+      <div class="stat-label">Total de moradas</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--success)" data-total-principal>0</div>
+      <div class="stat-label">Morada principal</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--primary)" data-total-alternativas>0</div>
+      <div class="stat-label">Moradas alternativas</div>
+    </div>
+  </div>
+
+  <div class="card" style="padding:0;margin-bottom:16px;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Morada</th>
+          <th>Código Postal</th>
+          <th>Cidade</th>
+          <th>Tipo</th>
+          <th>Estado</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody data-moradas-lista></tbody>
+    </table>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <div style="font-size:13px;color:var(--text-muted)" data-moradas-resumo></div>
+  </div>
+
+  <div class="modal-overlay" style="display:none;" id="modalRemover">
+    <div class="modal">
+      <div class="modal-title">Remover morada?</div>
+      <div class="modal-text">Tem a certeza que pretende remover esta morada? Esta ação não pode ser desfeita.</div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="document.getElementById('modalRemover').style.display='none'">Cancelar</button>
+        <button class="btn btn-danger" id="btnConfirmarRemover">Remover</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="./clientes.js"></script>
+<script src="./moradas.js"></script>
+</body>
+</html>
