@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDelivery - Relatórios Operacionais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#01696f"/>
+            <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        SmartDelivery
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">📊 Dashboard</a>
+        <div class="nav-section">Análise</div>
+        <a href="dashboard-avancado.html" class="nav-item">📈 Indicadores</a>
+        <a href="relatorios-operacionais.html" class="nav-item active">📋 Relatórios</a>
+        <div class="nav-section">Gestão</div>
+        <a href="../../sprint1/clientes/lista-clientes.html" class="nav-item">👥 Clientes</a>
+        <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">🛵 Estafetas</a>
+        <a href="../../sprint2/recursos/lista-veiculos.html" class="nav-item">🚗 Veículos</a>
+        <div class="nav-section">Comunicação</div>
+        <a href="../../sprint1/comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+        <a href="../../sprint1/comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+    </nav>
+</aside>
+
+<header class="topbar">
+    <div>
+        <div class="topbar-title">Relatórios Operacionais</div>
+        <div class="breadcrumb">Análise › <span>Relatórios</span></div>
+    </div>
+    <div class="topbar-actions">
+        <div class="user-avatar">AR</div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="page-header">
+        <div>
+            <div class="page-title">📋 Geração de Relatórios</div>
+            <div class="page-subtitle">Consulte e exporte dados por estafeta, zona e período</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label>Tipo de relatório</label>
+                <select id="tipoRelatorio" class="filter-select">
+                    <option value="estafeta">Entregas por estafeta</option>
+                    <option value="zona">Entregas por zona</option>
+                    <option value="periodo">Entregas por período</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Período (início)</label>
+                <input type="date" id="dataInicio" class="form-input" value="2026-04-01">
+            </div>
+            <div class="filter-group">
+                <label>Período (fim)</label>
+                <input type="date" id="dataFim" class="form-input" value="2026-04-30">
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="gerarRelatorio()">Gerar</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="dashboard-card-header">
+            <div class="dashboard-card-title">Resultado</div>
+            <div class="export-buttons" style="margin:0">
+                <button class="btn btn-secondary btn-sm" onclick="exportarCSV()">📥 Exportar CSV</button>
+                <button class="btn btn-secondary btn-sm" onclick="exportarExcel()">📊 Exportar Excel</button>
+            </div>
+        </div>
+        <div class="table-responsive" id="tabelaContainer">
+            <!-- Tabela gerada dinamicamente -->
+        </div>
+    </div>
+</main>
+
+<script>
+    // Dados simulados (US23)
+    const dadosEstafetas = [
+        { nome: 'Carlos Mendes', entregas: 42, taxaPrazo: 95 },
+        { nome: 'Ana Rodrigues', entregas: 38, taxaPrazo: 88 },
+        { nome: 'João Pereira', entregas: 35, taxaPrazo: 92 },
+        { nome: 'Maria Costa', entregas: 30, taxaPrazo: 85 }
+    ];
+    const dadosZonas = [
+        { zona: 'Centro', entregas: 120, tempoMedio: 1.2 },
+        { zona: 'Norte', entregas: 85, tempoMedio: 2.0 },
+        { zona: 'Sul', entregas: 70, tempoMedio: 1.8 },
+        { zona: 'Oeste', entregas: 45, tempoMedio: 2.3 }
+    ];
+    const dadosPeriodo = [
+        { periodo: 'Semana 1', entregas: 112, taxaPrazo: 90 },
+        { periodo: 'Semana 2', entregas: 128, taxaPrazo: 93 },
+        { periodo: 'Semana 3', entregas: 135, taxaPrazo: 91 },
+        { periodo: 'Semana 4', entregas: 142, taxaPrazo: 94 }
+    ];
+
+    function gerarRelatorio() {
+        const tipo = document.getElementById('tipoRelatorio').value;
+        const container = document.getElementById('tabelaContainer');
+        let html = '<table class="table">';
+        if (tipo === 'estafeta') {
+            html += '<thead><tr><th>Estafeta</th><th>Entregas</th><th>Taxa de cumprimento de prazo (%)</th></tr></thead><tbody>';
+            dadosEstafetas.forEach(e => {
+                html += `<tr><td>${e.nome}</td><td>${e.entregas}</td><td>${e.taxaPrazo}%</td></tr>`;
+            });
+        } else if (tipo === 'zona') {
+            html += '<thead><tr><th>Zona</th><th>Entregas</th><th>Tempo médio de entrega (dias)</th></tr></thead><tbody>';
+            dadosZonas.forEach(z => {
+                html += `<tr><td>${z.zona}</td><td>${z.entregas}</td><td>${z.tempoMedio}</td></tr>`;
+            });
+        } else {
+            html += '<thead><tr><th>Período</th><th>Entregas</th><th>Taxa de cumprimento (%)</th></tr></thead><tbody>';
+            dadosPeriodo.forEach(p => {
+                html += `<tr><td>${p.periodo}</td><td>${p.entregas}</td><td>${p.taxaPrazo}%</td></tr>`;
+            });
+        }
+        html += '</tbody></table>';
+        container.innerHTML = html;
+    }
+
+    function exportarCSV() {
+        alert('Simulação: Relatório exportado para CSV (implementação futura).');
+    }
+    function exportarExcel() {
+        alert('Simulação: Relatório exportado para Excel (implementação futura).');
+    }
+
+    // Inicializar
+    gerarRelatorio();
+</script>
+</body>
+</html>

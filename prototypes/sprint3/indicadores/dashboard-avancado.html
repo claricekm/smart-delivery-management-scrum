@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDelivery - Dashboard Avançado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#01696f"/>
+            <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        SmartDelivery
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">📊 Dashboard</a>
+        <div class="nav-section">Análise</div>
+        <a href="dashboard-avancado.html" class="nav-item active">📈 Indicadores Avançados</a>
+        <a href="relatorios-operacionais.html" class="nav-item">📋 Relatórios</a>
+        <div class="nav-section">Gestão</div>
+        <a href="../../sprint1/clientes/lista-clientes.html" class="nav-item">👥 Clientes</a>
+        <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">🛵 Estafetas</a>
+        <a href="../../sprint2/recursos/lista-veiculos.html" class="nav-item">🚗 Veículos</a>
+        <div class="nav-section">Comunicação</div>
+        <a href="../../sprint1/comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+        <a href="../../sprint1/comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+    </nav>
+</aside>
+
+<header class="topbar">
+    <div>
+        <div class="topbar-title">Dashboard de Indicadores</div>
+        <div class="breadcrumb">Análise › <span>Indicadores Avançados</span></div>
+    </div>
+    <div class="topbar-actions">
+        <div class="user-avatar">AR</div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="page-header">
+        <div>
+            <div class="page-title">📊 Monitorização de Indicadores</div>
+            <div class="page-subtitle">Visão detalhada do desempenho operacional</div>
+        </div>
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label>Período</label>
+                <select id="periodo" class="filter-select">
+                    <option value="7">Últimos 7 dias</option>
+                    <option value="30" selected>Últimos 30 dias</option>
+                    <option value="90">Últimos 90 dias</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Zona</label>
+                <select id="zona" class="filter-select">
+                    <option value="all">Todas</option>
+                    <option value="Centro">Centro</option>
+                    <option value="Norte">Norte</option>
+                    <option value="Sul">Sul</option>
+                </select>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="aplicarFiltros()">Aplicar</button>
+        </div>
+    </div>
+
+    <!-- KPIs (US20, US21, US22) -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-value" id="totalEntregas">156</div>
+            <div class="kpi-label">Total de Entregas (período)</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value" id="taxaPrazo">92%</div>
+            <div class="kpi-label">Taxa de Entregas no Prazo</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value" id="tempoMedio">2.3</div>
+            <div class="kpi-label">Tempo Médio de Entrega (dias)</div>
+        </div>
+    </div>
+
+    <!-- Gráfico de entregas por período (US20) -->
+    <div class="chart-container">
+        <div class="chart-title">
+            <span>📅 Entregas por dia</span>
+            <span style="font-size:12px; color:var(--text-muted)">Comparação com período anterior: <span id="comparacao" class="change-up">▲ +5%</span></span>
+        </div>
+        <div id="barChart" class="bar-chart"></div>
+    </div>
+
+    <!-- Detalhe da taxa de prazo e tempo médio (US21, US22) -->
+    <div class="dashboard-two-columns">
+        <div class="card">
+            <div class="dashboard-card-header">
+                <div class="dashboard-card-title">✅ Taxa de cumprimento de prazo</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header"><span>Entregas no prazo</span><span id="prazoPercent">92%</span></div>
+                <div class="progress-bar-bg"><div class="progress-fill success" id="prazoFill" style="width:92%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header"><span>Entregas com atraso</span><span id="atrasoPercent">8%</span></div>
+                <div class="progress-bar-bg"><div class="progress-fill warning" id="atrasoFill" style="width:8%"></div></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="dashboard-card-header">
+                <div class="dashboard-card-title">⏱️ Tempo médio de entrega por zona</div>
+            </div>
+            <table class="table">
+                <thead><tr><th>Zona</th><th>Tempo médio (dias)</th><th>Entregas</th></tr></thead>
+                <tbody id="tabelaTempoZona"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Botões de exportação (US24) -->
+    <div class="export-buttons">
+        <button class="btn btn-secondary btn-sm" onclick="exportarCSV()">📥 Exportar CSV</button>
+        <button class="btn btn-secondary btn-sm" onclick="exportarExcel()">📊 Exportar Excel</button>
+    </div>
+</main>
+
+<script>
+    // Dados simulados (entregas por dia)
+    const dadosEntregas = {
+        7: [12, 15, 18, 14, 20, 22, 18],
+        30: [120, 135, 142, 128, 156, 148, 165, 152, 140, 135, 142, 150, 148, 155, 160, 158, 162, 170, 168, 175, 172, 180, 178, 185, 182, 190, 188, 192, 195, 200],
+        90: [350, 380, 400, 420, 390, 410, 430] // simplificado
+    };
+    const diasSemana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
+
+    // Dados de tempo médio por zona (US22)
+    const tempoPorZona = {
+        'Centro': { tempo: 1.2, entregas: 45 },
+        'Norte': { tempo: 2.1, entregas: 32 },
+        'Sul': { tempo: 1.8, entregas: 28 },
+        'Oeste': { tempo: 2.5, entregas: 19 }
+    };
+
+    let periodoAtual = '30';
+    let zonaAtual = 'all';
+
+    function atualizarDashboard() {
+        // Atualizar KPIs (simulação)
+        document.getElementById('totalEntregas').innerText = periodoAtual === '7' ? '114' : (periodoAtual === '30' ? '156' : '320');
+        document.getElementById('taxaPrazo').innerText = '92%';
+        document.getElementById('tempoMedio').innerText = '2.3';
+        document.getElementById('prazoPercent').innerText = '92%';
+        document.getElementById('atrasoPercent').innerText = '8%';
+        document.getElementById('prazoFill').style.width = '92%';
+        document.getElementById('atrasoFill').style.width = '8%';
+        document.getElementById('comparacao').innerHTML = periodoAtual === '30' ? '▲ +5%' : '▲ +3%';
+
+        // Gráfico
+        const dados = dadosEntregas[periodoAtual];
+        const container = document.getElementById('barChart');
+        if (periodoAtual === '7') {
+            const maxVal = Math.max(...dados);
+            container.innerHTML = dados.map((v,i) => `
+                <div class="bar-item">
+                    <div class="bar-value">${v}</div>
+                    <div class="bar-fill" style="height:${(v/maxVal)*120}px"></div>
+                    <div class="bar-label">${diasSemana[i]}</div>
+                </div>
+            `).join('');
+        } else if (periodoAtual === '30') {
+            const semanas = [dados.slice(0,7).reduce((a,b)=>a+b,0), dados.slice(7,14).reduce((a,b)=>a+b,0), dados.slice(14,21).reduce((a,b)=>a+b,0), dados.slice(21,28).reduce((a,b)=>a+b,0)];
+            const maxSem = Math.max(...semanas);
+            container.innerHTML = semanas.map((v,i) => `
+                <div class="bar-item">
+                    <div class="bar-value">${v}</div>
+                    <div class="bar-fill" style="height:${(v/maxSem)*120}px"></div>
+                    <div class="bar-label">Semana ${i+1}</div>
+                </div>
+            `).join('');
+        } else {
+            container.innerHTML = '<div class="alert alert-info">Gráfico para 90 dias disponível em versão final.</div>';
+        }
+
+        // Tabela tempo por zona (com filtro)
+        let zonasFiltradas = Object.entries(tempoPorZona);
+        if (zonaAtual !== 'all') {
+            zonasFiltradas = zonasFiltradas.filter(([nome]) => nome === zonaAtual);
+        }
+        const tbody = document.getElementById('tabelaTempoZona');
+        tbody.innerHTML = zonasFiltradas.map(([nome, dados]) => `
+            <tr><td>${nome}</td><td>${dados.tempo} dias</td><td>${dados.entregas}</td></tr>
+        `).join('');
+    }
+
+    function aplicarFiltros() {
+        periodoAtual = document.getElementById('periodo').value;
+        zonaAtual = document.getElementById('zona').value;
+        atualizarDashboard();
+    }
+
+    function exportarCSV() {
+        alert('Simulação: Dados exportados para CSV (implementação futura).');
+    }
+    function exportarExcel() {
+        alert('Simulação: Dados exportados para Excel (implementação futura).');
+    }
+
+    // Inicializar
+    atualizarDashboard();
+</script>
+</body>
+</html>
