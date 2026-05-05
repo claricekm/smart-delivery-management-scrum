@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Login - SmartDelivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-panel">
+      <div class="auth-brand">
+        <svg width="34" height="34" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="7" fill="#01696f"/>
+          <path d="M7 14l5 5 9-9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>SmartDelivery</span>
+      </div>
+
+      <div>
+        <h1 class="auth-title">Entrar</h1>
+        <p class="auth-subtitle">Aceda ao painel de gestão de entregas.</p>
+      </div>
+
+      <form class="auth-form" data-auth-login-form>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" class="form-control" autocomplete="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Palavra-passe</label>
+          <input id="password" name="password" type="password" class="form-control" autocomplete="current-password" required>
+        </div>
+
+        <div class="auth-message" data-auth-message></div>
+
+        <button type="submit" class="btn btn-primary auth-submit">Entrar</button>
+      </form>
+
+      <p class="auth-footer">
+        Ainda não tem conta?
+        <a href="signup.html" class="btn-link">Criar conta</a>
+      </p>
+    </section>
+  </main>
+
+  <script src="../assets/js/auth.js"></script>
+</body>
+</html>

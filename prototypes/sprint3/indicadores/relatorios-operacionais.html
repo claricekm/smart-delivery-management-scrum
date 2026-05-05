@@ -21,17 +21,23 @@
     <nav class="sidebar-nav">
         <div class="nav-section">Principal</div>
         <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">📊 Dashboard</a>
-        <div class="nav-section">Análise</div>
-        <a href="dashboard-avancado.html" class="nav-item">📈 Indicadores</a>
-        <a href="relatorios-operacionais.html" class="nav-item active">📋 Relatórios</a>
         <div class="nav-section">Gestão</div>
-        <a href="../../sprint1/clientes/lista-clientes.html" class="nav-item">👥 Clientes</a>
+        <a href="../../sprint1/clientes/lista-clientes.Html" class="nav-item">👥 Clientes</a>
         <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">🛵 Estafetas</a>
+        <a href="../../sprint1/encomendas/lista-encomendas.html" class="nav-item">📦 Encomendas</a>
+        <a href="../../sprint2/clientes/lista-moradas.html" class="nav-item">📍 Moradas</a>
+        <a href="../../sprint2/entregas/planeamento-zona-rota.html" class="nav-item">🗺️ Entregas</a>
+        <div class="nav-section">Recursos</div>
         <a href="../../sprint2/recursos/lista-veiculos.html" class="nav-item">🚗 Veículos</a>
+        <a href="./dashboard-avancado.html" class="nav-item active">📈 Indicadores</a>
         <div class="nav-section">Comunicação</div>
-        <a href="../../sprint1/comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
-        <a href="../../sprint1/comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+        <a href="../comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+        <a href="../comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
     </nav>
+
+    <div class="sidebar-account">
+        <a href="#" class="nav-item logout" data-auth-logout>↩ Sair</a>
+    </div>
 </aside>
 
 <header class="topbar">
@@ -143,5 +149,6 @@
     // Inicializar
     gerarRelatorio();
 </script>
+  <script src="../../../assets/js/auth.js"></script>
 </body>
 </html>

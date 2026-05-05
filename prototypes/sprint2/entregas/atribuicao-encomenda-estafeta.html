@@ -18,30 +18,26 @@
     </svg>
     SmartDelivery
   </div>
-  <nav class="sidebar-nav">
-    <div class="nav-section">Principal</div>
-    <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      Dashboard
-    </a>
-    <div class="nav-section">Gestao</div>
-    <a href="../../sprint1/clientes/lista-clientes.Html" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Clientes
-    </a>
-    <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-      Estafetas
-    </a>
-    <a href="../../sprint1/encomendas/lista-encomendas.html" class="nav-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10"/><path d="M23 4H1v6h22V4z"/><line x1="12" y1="4" x2="12" y2="10"/></svg>
-      Encomendas
-    </a>
-    <a href="./atribuicao-encomenda-estafeta.html" class="nav-item active">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Entregas
-    </a>
-  </nav>
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="../../sprint1/dashboard/dashboard.html" class="nav-item">📊 Dashboard</a>
+        <div class="nav-section">Gestão</div>
+        <a href="../../sprint1/clientes/lista-clientes.Html" class="nav-item">👥 Clientes</a>
+        <a href="../../sprint1/estafetas/lista-estafetas.html" class="nav-item">🛵 Estafetas</a>
+        <a href="../../sprint1/encomendas/lista-encomendas.html" class="nav-item">📦 Encomendas</a>
+        <a href="../clientes/lista-moradas.html" class="nav-item">📍 Moradas</a>
+        <a href="./planeamento-zona-rota.html" class="nav-item active">🗺️ Entregas</a>
+        <div class="nav-section">Recursos</div>
+        <a href="../recursos/lista-veiculos.html" class="nav-item">🚗 Veículos</a>
+        <a href="../../sprint3/indicadores/dashboard-avancado.html" class="nav-item">📈 Indicadores</a>
+        <div class="nav-section">Comunicação</div>
+        <a href="../../sprint3/comunicacao/preferencias-comunicacao.html" class="nav-item">✉️ Preferências</a>
+        <a href="../../sprint3/comunicacao/historico-notificacoes.html" class="nav-item">📋 Histórico</a>
+    </nav>
+
+    <div class="sidebar-account">
+        <a href="#" class="nav-item logout" data-auth-logout>↩ Sair</a>
+    </div>
 </aside>
 
 <header class="topbar">
@@ -126,7 +122,7 @@
         <button id="limpar-selecao" class="btn btn-secondary btn-sm">Limpar</button>
         <button id="confirmar-atribuicao" class="btn btn-primary btn-sm">Confirmar atribuicao</button>
       </div>
-    </aside>
+</aside>
   </div>
 
   <section class="card" style="margin-top:20px;">
@@ -152,5 +148,6 @@
 </main>
 
 <script src="./entregas.js"></script>
+  <script src="../../../assets/js/auth.js"></script>
 </body>
 </html>
